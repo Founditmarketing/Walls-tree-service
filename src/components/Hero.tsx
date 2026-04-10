@@ -1,0 +1,130 @@
+import { useState, useEffect } from 'react';
+import { motion, AnimatePresence } from 'motion/react';
+
+const words = ["Precision.", "Safety.", "Power."];
+
+export default function Hero() {
+  const [index, setIndex] = useState(0);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setIndex((prev) => (prev + 1) % words.length);
+    }, 3000);
+    return () => clearInterval(interval);
+  }, []);
+
+  return (
+    <section className="relative min-h-[90vh] flex items-center pt-28">
+      {/* Background Image with Overlay */}
+      <div className="absolute inset-0 z-0">
+        <img 
+          src="https://images.unsplash.com/photo-1622322365287-17931c817210?q=80&w=2940&auto=format&fit=crop" 
+          alt="Enterprise Tree Service Crane Operation" 
+          className="w-full h-full object-cover"
+          referrerPolicy="no-referrer"
+        />
+        <div className="absolute inset-0 bg-enterprise-green/85 mix-blend-multiply"></div>
+        <div className="absolute inset-0 bg-gradient-to-r from-enterprise-black/80 via-enterprise-black/40 to-transparent"></div>
+      </div>
+
+      {/* Content */}
+      <div className="relative z-10 max-w-[1600px] mx-auto px-4 md:px-8 w-full pb-20 md:pb-0">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+          
+          {/* Left: Text */}
+          <div className="max-w-3xl">
+            <h1 className="flex flex-col gap-2 md:gap-4">
+              <span className="font-heading font-light text-action-orange text-lg md:text-xl lg:text-2xl uppercase tracking-tight leading-none">
+                The Professional Enterprise.
+              </span>
+              <span className="font-heading font-light text-white text-4xl md:text-5xl lg:text-6xl uppercase tracking-tighter leading-[1.1] mt-2 md:mt-4 block">
+                Delivering Enterprise Tree Care With Absolute
+              </span>
+              <span className="font-heading font-light text-4xl md:text-5xl lg:text-6xl uppercase tracking-tighter leading-[1.1] block">
+                <span className="inline-grid overflow-hidden align-bottom">
+                  <AnimatePresence mode="popLayout">
+                    <motion.span
+                      key={index}
+                      initial={{ y: "100%", opacity: 0 }}
+                      animate={{ y: 0, opacity: 1 }}
+                      exit={{ y: "-100%", opacity: 0 }}
+                      transition={{ duration: 0.5, ease: "easeInOut" }}
+                      className="text-action-orange [grid-area:1/1]"
+                    >
+                      {words[index]}
+                    </motion.span>
+                  </AnimatePresence>
+                </span>
+              </span>
+            </h1>
+
+            <div className="mt-12 flex flex-col items-start gap-4">
+              <button className="bg-action-orange text-white font-heading font-light uppercase tracking-widest text-lg md:text-xl px-10 py-6 hover:bg-white hover:text-action-orange transition-colors duration-300 rounded-none border-2 border-action-orange">
+                Get Started - Free Inspection
+              </button>
+              <p className="font-sans font-bold text-white/80 text-sm md:text-base tracking-widest uppercase">
+                Fully Licensed &amp; Insured <span className="text-action-orange mx-2">|</span> ISA Certified
+              </p>
+            </div>
+          </div>
+
+          {/* Right: Transparent Lead Form */}
+          <div className="w-full max-w-md mx-auto lg:ml-auto xl:mr-8 hidden md:block">
+            <div className="bg-white/5 backdrop-blur-md p-8 border border-white/20 shadow-2xl relative">
+              <div className="absolute top-0 right-0 w-16 h-1 border-t-4 border-action-orange"></div>
+              
+              <h3 className="font-heading font-light text-2xl text-white uppercase tracking-tight mb-2">
+                Rapid Intake
+              </h3>
+              <p className="font-sans text-sm text-gray-300 mb-6">Request priority dispatch or an estimate.</p>
+              
+              <form className="space-y-4">
+                <input type="text" placeholder="Full Name" className="w-full p-4 bg-black/40 border border-white/10 font-sans text-white placeholder:text-gray-400 focus:border-action-orange focus:outline-none rounded-none text-sm" />
+                <div className="grid grid-cols-2 gap-4">
+                  <input type="tel" placeholder="Phone" className="w-full p-4 bg-black/40 border border-white/10 font-sans text-white placeholder:text-gray-400 focus:border-action-orange focus:outline-none rounded-none text-sm" />
+                  <input type="text" placeholder="Zip Code" className="w-full p-4 bg-black/40 border border-white/10 font-sans text-white placeholder:text-gray-400 focus:border-action-orange focus:outline-none rounded-none text-sm" />
+                </div>
+                <select className="w-full p-4 bg-black/40 border border-white/10 font-sans text-white focus:border-action-orange focus:outline-none rounded-none appearance-none text-sm [&>option]:bg-enterprise-black">
+                  <option>Emergency Service</option>
+                  <option>Tree Removal</option>
+                  <option>Pruning & Maintenance</option>
+                </select>
+                <button type="button" className="w-full bg-enterprise-white text-enterprise-black font-heading font-bold uppercase tracking-widest text-sm px-6 py-4 hover:bg-action-orange hover:text-white transition-colors mt-2">
+                  Send Request
+                </button>
+              </form>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      {/* Cycling Trust Banner */}
+      <div className="absolute bottom-0 left-0 w-full overflow-hidden border-t border-white/10 py-3 z-20 flex pointer-events-none">
+        <motion.div
+           initial={{ x: 0 }}
+           animate={{ x: "-50%" }}
+           transition={{ duration: 40, ease: "linear", repeat: Infinity }}
+           className="flex whitespace-nowrap w-max"
+        >
+          {[...Array(2)].map((_, i) => (
+             <div key={i} className="flex items-center space-x-8 md:space-x-12 px-4 md:px-6 font-sans font-bold text-white/70 text-[10px] md:text-xs tracking-[0.2em] uppercase">
+               <span>Fully Insured & Licensed</span>
+               <span className="text-action-orange/60">/</span>
+               <span>ISA Certified Arborists</span>
+               <span className="text-action-orange/60">/</span>
+               <span>24/7 Emergency Response</span>
+               <span className="text-action-orange/60">/</span>
+               <span>5-Star Rated Service</span>
+               <span className="text-action-orange/60">/</span>
+               <span>Top Tier Equipment</span>
+               <span className="text-action-orange/60">/</span>
+               <span>Zero Impact Removal</span>
+               <span className="text-action-orange/60">/</span>
+             </div>
+          ))}
+        </motion.div>
+      </div>
+    </section>
+  );
+}
