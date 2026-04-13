@@ -47,11 +47,12 @@ export default function Hero() {
             __html: `
               <video 
                 src="/wallstreeservicesherovid.mp4" 
-                autoplay 
-                loop 
-                muted 
-                playsinline
+                autoplay="autoplay" 
+                loop="loop" 
+                muted="muted" 
+                playsinline="playsinline"
                 webkit-playsinline="true"
+                onended="this.play()"
                 class="w-full h-full object-cover pointer-events-none"
               ></video>
             `
