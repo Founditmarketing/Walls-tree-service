@@ -2,11 +2,11 @@ import { Phone, ArrowRight } from 'lucide-react';
 
 export default function FinalCTA() {
   return (
-    <section className="relative py-16 md:py-24 bg-enterprise-black overflow-hidden">
+    <section id="contact" className="relative py-16 md:py-24 bg-enterprise-black overflow-hidden">
       {/* Background Image */}
       <div className="absolute inset-0 z-0">
         <img 
-          src="https://images.unsplash.com/photo-1542601906990-b4d3fb778b09?q=80&w=2813&auto=format&fit=crop" 
+          src="/wallstreegallery6.jpeg" 
           alt="Tree service at dusk" 
           className="w-full h-full object-cover opacity-40"
           referrerPolicy="no-referrer"
@@ -31,7 +31,7 @@ export default function FinalCTA() {
           </div>
 
           {/* Right: Form Mockup */}
-          <div className="bg-transparent p-6 md:p-10 border border-white/20 border-t-4 border-t-action-orange relative">
+          <div className="bg-enterprise-black/20 backdrop-blur-2xl p-6 md:p-10 border border-white/20 border-t-4 border-t-action-orange relative">
             {/* Decorative lines inside card */}
             <div className="absolute top-0 left-8 w-px h-12 bg-white/20 z-20"></div>
             <div className="absolute bottom-8 right-0 w-12 h-px bg-white/20 z-20"></div>
@@ -86,7 +86,7 @@ export default function FinalCTA() {
                   Submit Request <ArrowRight className="w-4 h-4" />
                 </button>
                 <button type="button" className="bg-transparent border-2 border-white/40 text-white font-heading font-bold uppercase tracking-widest text-sm px-6 py-5 hover:bg-white hover:text-enterprise-black transition-colors rounded-none flex items-center justify-center gap-2 w-full">
-                  <Phone className="w-4 h-4" /> Call 555-0198
+                  <Phone className="w-4 h-4" /> Call (318) 880-6075
                 </button>
               </div>
             </form>

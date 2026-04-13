@@ -2,27 +2,27 @@ import { ArrowRight } from 'lucide-react';
 
 const projects = [
   {
-    image: "https://images.unsplash.com/photo-1588681664899-f142ff2dc9b1?q=80&w=2874&auto=format&fit=crop",
-    title: "Crane-Assisted Removal",
-    category: "Hazardous Trees",
+    image: "/wallstreegallery10.jpg",
+    title: "Precision Rope Rigging",
+    category: "Controlled Removal",
     className: "min-h-[200px] lg:min-h-[220px]"
   },
   {
-    image: "https://images.unsplash.com/photo-1502082553048-f009c37129b9?q=80&w=2940&auto=format&fit=crop",
-    title: "Precision Canopy Pruning",
-    category: "Commercial Property",
+    image: "/wallstreegallery7.jpg",
+    title: "High Canopy Access",
+    category: "Bucket Truck Ops",
     className: "min-h-[200px] lg:min-h-[220px]"
   },
   {
-    image: "https://images.unsplash.com/photo-1605810230434-7631ac76ec81?q=80&w=2940&auto=format&fit=crop",
-    title: "Emergency Storm Clearance",
-    category: "24/7 Response",
+    image: "/wallstreegallery11.jpg",
+    title: "Large-Scale Trunk Felling",
+    category: "Complete Removal",
     className: "min-h-[200px] lg:min-h-[220px]"
   },
   {
-    image: "https://images.unsplash.com/photo-1513836279014-a89f7a76ae86?q=80&w=2788&auto=format&fit=crop",
-    title: "Structural Cabling",
-    category: "Tree Preservation",
+    image: "/wallstreegallery13.jpg",
+    title: "Heavy Brush Clearing",
+    category: "Fleet Operations",
     className: "min-h-[200px] lg:min-h-[220px]"
   }
 ];

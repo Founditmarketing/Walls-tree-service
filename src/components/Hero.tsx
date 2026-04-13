@@ -5,6 +5,13 @@ const words = ["Precision.", "Safety.", "Power."];
 
 export default function Hero() {
   const [index, setIndex] = useState(0);
+  const [isFirstLoad, setIsFirstLoad] = useState(false);
+
+  useEffect(() => {
+    if (!sessionStorage.getItem('walls_preloader_complete')) {
+      setIsFirstLoad(true);
+    }
+  }, []);
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -15,16 +22,35 @@ export default function Hero() {
 
   return (
     <section className="relative min-h-[90vh] flex items-center pt-28">
+      <style>{`
+        @keyframes hero-fade-left {
+          0% { opacity: 0; transform: translateX(-40px); }
+          100% { opacity: 1; transform: translateX(0); }
+        }
+        @keyframes hero-fade-right {
+          0% { opacity: 0; transform: translateX(40px); }
+          100% { opacity: 1; transform: translateX(0); }
+        }
+        .animate-hero-left {
+          animation: hero-fade-left 1.6s cubic-bezier(0.16, 1, 0.3, 1) 2.2s forwards;
+        }
+        .animate-hero-right {
+          animation: hero-fade-right 1.6s cubic-bezier(0.16, 1, 0.3, 1) 2.2s forwards;
+        }
+      `}</style>
+      
       {/* Background Image with Overlay */}
       <div className="absolute inset-0 z-0">
-        <img 
-          src="https://images.unsplash.com/photo-1622322365287-17931c817210?q=80&w=2940&auto=format&fit=crop" 
-          alt="Enterprise Tree Service Crane Operation" 
+        <video 
+          src="/wallstreeservicesherovid.mp4" 
+          autoPlay
+          loop
+          muted
+          playsInline
           className="w-full h-full object-cover"
-          referrerPolicy="no-referrer"
         />
-        <div className="absolute inset-0 bg-enterprise-green/85 mix-blend-multiply"></div>
-        <div className="absolute inset-0 bg-gradient-to-r from-enterprise-black/80 via-enterprise-black/40 to-transparent"></div>
+        <div className="absolute inset-0 bg-enterprise-green/50 mix-blend-multiply"></div>
+        <div className="absolute inset-0 bg-gradient-to-r from-enterprise-black/60 via-enterprise-black/20 to-transparent"></div>
       </div>
 
       {/* Content */}
@@ -32,7 +58,7 @@ export default function Hero() {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
           
           {/* Left: Text */}
-          <div className="max-w-3xl">
+          <div className={`max-w-3xl ${isFirstLoad ? 'opacity-0 animate-hero-left' : 'opacity-100'}`}>
             <h1 className="flex flex-col gap-2 md:gap-4">
               <span className="font-heading font-light text-action-orange text-lg md:text-xl lg:text-2xl uppercase tracking-tight leading-none">
                 The Professional Enterprise.
@@ -40,7 +66,7 @@ export default function Hero() {
               <span className="font-heading font-light text-white text-4xl md:text-5xl lg:text-6xl uppercase tracking-tighter leading-[1.1] mt-2 md:mt-4 block">
                 Delivering Enterprise Tree Care With Absolute
               </span>
-              <span className="font-heading font-light text-4xl md:text-5xl lg:text-6xl uppercase tracking-tighter leading-[1.1] block">
+              <span className="font-heading font-bold text-5xl md:text-7xl lg:text-[90px] uppercase tracking-tighter leading-[0.9] block -mt-0 md:-mt-2 lg:-mt-4">
                 <span className="inline-grid overflow-hidden align-bottom">
                   <AnimatePresence mode="popLayout">
                     <motion.span
@@ -59,18 +85,18 @@ export default function Hero() {
             </h1>
 
             <div className="mt-12 flex flex-col items-start gap-4">
-              <button className="bg-action-orange text-white font-heading font-light uppercase tracking-widest text-lg md:text-xl px-10 py-6 hover:bg-white hover:text-action-orange transition-colors duration-300 rounded-none border-2 border-action-orange">
+              <button className="bg-action-orange text-white font-heading font-light uppercase tracking-widest text-sm sm:text-base md:text-xl px-4 sm:px-6 md:px-10 py-4 md:py-6 whitespace-nowrap hover:bg-white hover:text-action-orange transition-colors duration-300 rounded-none border-2 border-action-orange">
                 Get Started - Free Inspection
               </button>
-              <p className="font-sans font-bold text-white/80 text-sm md:text-base tracking-widest uppercase">
-                Fully Licensed &amp; Insured <span className="text-action-orange mx-2">|</span> ISA Certified
+              <p className="font-sans font-bold text-white/80 text-[11px] sm:text-xs md:text-base tracking-widest uppercase">
+                Fully Licensed &amp; Insured <span className="text-action-orange mx-1 md:mx-2">|</span> ISA Certified
               </p>
             </div>
           </div>
 
           {/* Right: Transparent Lead Form */}
-          <div className="w-full max-w-md mx-auto lg:ml-auto xl:mr-8 hidden md:block">
-            <div className="bg-white/5 backdrop-blur-md p-8 border border-white/20 shadow-2xl relative">
+          <div className={`w-full max-w-md mx-auto lg:ml-auto xl:mr-8 hidden md:block ${isFirstLoad ? 'opacity-0 animate-hero-right' : 'opacity-100'}`}>
+            <div className="bg-white/5 backdrop-blur-xl p-8 border border-white/20 shadow-[0_8px_30px_rgb(0,0,0,0.5)] relative">
               <div className="absolute top-0 right-0 w-16 h-1 border-t-4 border-action-orange"></div>
               
               <h3 className="font-heading font-light text-2xl text-white uppercase tracking-tight mb-2">

@@ -56,31 +56,21 @@ export default function Reviews() {
       <div className="max-w-[1600px] mx-auto px-4 md:px-8 relative z-10">
         
         {/* Header */}
-        <div className="flex flex-col md:flex-row justify-between items-end gap-8 mb-16">
+        <div className="flex flex-col md:flex-row justify-between items-end gap-6 mb-2 md:mb-16">
           <div>
-            <h2 className="font-heading font-light text-4xl md:text-5xl text-white uppercase tracking-tighter leading-none mb-4">
+            <h2 className="font-heading font-light text-4xl md:text-5xl text-white uppercase tracking-tighter leading-none mt-0">
               The Walls Experience:<br/>
               <span className="text-action-orange">5-Star Service</span> From Real Clients.
             </h2>
-            <div className="flex items-center gap-4 bg-white/5 w-fit px-6 py-3 border-l-4 border-action-orange">
-              <div className="flex gap-1">
-                {[...Array(5)].map((_, i) => (
-                  <Star key={i} className="w-5 h-5 fill-action-orange text-action-orange" />
-                ))}
-              </div>
-              <span className="font-sans font-bold text-white tracking-widest uppercase text-sm">
-                5/5 Google Rating <span className="text-gray-400 normal-case ml-1">(based on 142 reviews)</span>
-              </span>
-            </div>
           </div>
           
           <div className="flex flex-col items-end gap-6">
-            <button className="bg-transparent border border-white/30 text-white font-heading font-bold uppercase tracking-widest text-sm px-8 py-4 hover:bg-white hover:text-enterprise-green transition-colors rounded-none flex items-center gap-2 whitespace-nowrap">
+            <button className="hidden lg:flex bg-transparent border border-white/30 text-white font-heading font-bold uppercase tracking-widest text-sm px-8 py-4 hover:bg-white hover:text-enterprise-green transition-colors rounded-none items-center gap-2 whitespace-nowrap">
               Write Your Review <ArrowRight className="w-4 h-4" />
             </button>
             
-            {/* Navigation */}
-            <div className="flex items-center gap-2">
+            {/* Navigation (Desktop) */}
+            <div className="hidden lg:flex items-center gap-2">
               <button onClick={() => scroll('left')} className="p-3 border border-white/30 text-white hover:bg-action-orange hover:border-action-orange transition-colors rounded-none" aria-label="Scroll left">
                 <ChevronLeft className="w-5 h-5" />
               </button>
@@ -94,16 +84,20 @@ export default function Reviews() {
         {/* Review Cards Carousel */}
         <div className="relative">
           {/* Fade edges */}
-          <div className="absolute top-0 right-0 bottom-0 w-24 bg-gradient-to-l from-enterprise-green to-transparent z-20 pointer-events-none hidden md:block"></div>
           
           <div 
             ref={scrollRef}
-            className="flex gap-6 overflow-x-auto snap-x snap-mandatory pb-8 pt-4 -mx-4 px-4 md:mx-0 md:px-0"
+            className="flex gap-6 overflow-x-auto snap-x snap-mandatory pb-8 pt-4 -mx-4 px-8 scroll-pl-8 md:ml-0 md:pl-0 md:pr-0 md:scroll-pl-0 desktop-right-bleed"
             style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}
           >
             <style>{`
               .overflow-x-auto::-webkit-scrollbar {
                 display: none;
+              }
+              @media (min-width: 768px) {
+                .desktop-right-bleed {
+                  margin-right: calc(-1 * max(2rem, 50vw - 800px + 2rem));
+                }
               }
             `}</style>
             
@@ -120,7 +114,7 @@ export default function Reviews() {
                       <Star key={i} className="w-4 h-4 fill-action-orange text-action-orange" />
                     ))}
                   </div>
-                  <p className="font-sans text-lg text-gray-300 leading-relaxed mb-10 font-light">
+                  <p className="font-sans text-sm md:text-lg text-gray-300 leading-snug md:leading-relaxed mb-10 font-light">
                     "{review.text}"
                   </p>
                 </div>
@@ -136,6 +130,24 @@ export default function Reviews() {
                 </div>
               </div>
             ))}
+            {/* Spacer for end-scroll breathing room */}
+            <div className="flex-none w-4 md:w-8 min-[1600px]:w-[calc(50vw-800px+2rem)]"></div>
+          </div>
+
+          {/* Navigation Buttons (Mobile) */}
+          <div className="flex lg:hidden items-center justify-between mt-0">
+            <a href="#write-review" className="inline-flex items-center gap-1.5 font-heading font-bold text-action-orange uppercase tracking-wider hover:text-white transition-colors group text-[11px] sm:text-sm">
+              Write Your Review 
+              <ArrowRight className="w-3 h-3 sm:w-4 sm:h-4 transform group-hover:translate-x-1 transition-transform" />
+            </a>
+            <div className="flex gap-2 sm:gap-3">
+              <button onClick={() => scroll('left')} className="p-3 border border-white/30 text-white hover:bg-action-orange hover:border-action-orange transition-colors rounded-none" aria-label="Scroll left">
+                <ChevronLeft className="w-5 h-5" />
+              </button>
+              <button onClick={() => scroll('right')} className="p-3 border border-white/30 text-white hover:bg-action-orange hover:border-action-orange transition-colors rounded-none" aria-label="Scroll right">
+                <ChevronRight className="w-5 h-5" />
+              </button>
+            </div>
           </div>
         </div>
 

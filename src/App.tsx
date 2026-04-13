@@ -12,12 +12,15 @@ import TrustBanner from './components/TrustBanner';
 import Reviews from './components/Reviews';
 import Work from './components/Work';
 import FinalCTA from './components/FinalCTA';
+import Map from './components/Map';
 import Footer from './components/Footer';
 import FloatingContactBar from './components/FloatingContactBar';
+import Preloader from './components/Preloader';
 
 export default function App() {
   return (
     <div className="min-h-screen bg-enterprise-white">
+      <Preloader />
       <Header />
       <main>
         <Hero />
@@ -28,6 +31,7 @@ export default function App() {
         <Reviews />
         <Work />
         <FinalCTA />
+        <Map />
       </main>
       <Footer />
       <FloatingContactBar />
