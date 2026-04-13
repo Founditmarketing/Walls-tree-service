@@ -1,7 +1,27 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, memo } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
 
 const words = ["Precision.", "Safety.", "Power."];
+
+const BackgroundVideo = memo(() => (
+  <div 
+    className="absolute inset-0 w-full h-full"
+    dangerouslySetInnerHTML={{
+      __html: `
+        <video 
+          src="/wallstreeservicesherovid.mp4" 
+          autoplay="autoplay" 
+          loop="loop" 
+          muted="muted" 
+          playsinline="playsinline"
+          webkit-playsinline="true"
+          onended="this.play()"
+          class="w-full h-full object-cover pointer-events-none"
+        ></video>
+      `
+    }}
+  />
+));
 
 export default function Hero() {
   const [index, setIndex] = useState(0);
@@ -41,23 +61,7 @@ export default function Hero() {
       
       {/* Background Image with Overlay */}
       <div className="absolute inset-0 z-0">
-        <div 
-          className="absolute inset-0 w-full h-full"
-          dangerouslySetInnerHTML={{
-            __html: `
-              <video 
-                src="/wallstreeservicesherovid.mp4" 
-                autoplay="autoplay" 
-                loop="loop" 
-                muted="muted" 
-                playsinline="playsinline"
-                webkit-playsinline="true"
-                onended="this.play()"
-                class="w-full h-full object-cover pointer-events-none"
-              ></video>
-            `
-          }}
-        />
+        <BackgroundVideo />
         <div className="absolute inset-0 bg-enterprise-green/50 mix-blend-multiply"></div>
         <div className="absolute inset-0 bg-gradient-to-r from-enterprise-black/60 via-enterprise-black/20 to-transparent"></div>
       </div>
