@@ -38,9 +38,11 @@ export default function Services() {
   const scrollRef = useRef<HTMLDivElement>(null);
 
   const scroll = (direction: 'left' | 'right') => {
-    if (scrollRef.current) {
-      const { current } = scrollRef;
-      const scrollAmount = direction === 'left' ? -current.offsetWidth / 1.5 : current.offsetWidth / 1.5;
+    if (scrollRef.current && scrollRef.current.firstElementChild) {
+      const current = scrollRef.current;
+      // Calculate exact physical width of one card + the container flex gap
+      const cardWidth = (current.firstElementChild as HTMLElement).offsetWidth + 24; 
+      const scrollAmount = direction === 'left' ? -cardWidth : cardWidth;
       current.scrollBy({ left: scrollAmount, behavior: 'smooth' });
     }
   };
