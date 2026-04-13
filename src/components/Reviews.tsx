@@ -135,7 +135,7 @@ export default function Reviews() {
           </div>
 
           {/* Navigation Buttons (Mobile) */}
-          <div className="flex lg:hidden items-center justify-between mt-0">
+          <div className="flex lg:hidden items-center justify-between mt-0 flex-row-reverse">
             <a href="#write-review" className="inline-flex items-center gap-1.5 font-heading font-bold text-action-orange uppercase tracking-wider hover:text-white transition-colors group text-[11px] sm:text-sm">
               Write Your Review 
               <ArrowRight className="w-3 h-3 sm:w-4 sm:h-4 transform group-hover:translate-x-1 transition-transform" />

@@ -143,7 +143,7 @@ export default function Services() {
             </div>
 
             {/* Navigation Buttons (Mobile) */}
-            <div className="flex lg:hidden items-center justify-between mt-4">
+            <div className="flex lg:hidden items-center justify-between mt-4 flex-row-reverse">
               <a href="#all-services" className="inline-flex items-center gap-1.5 font-heading font-bold text-action-orange uppercase tracking-wider hover:text-enterprise-black transition-colors group text-[11px] sm:text-sm">
                 See Complete Service Menu 
                 <ArrowRight className="w-3 h-3 sm:w-4 sm:h-4 transform group-hover:translate-x-1 transition-transform" />
