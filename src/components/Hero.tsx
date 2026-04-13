@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
 
 const words = ["Precision.", "Safety.", "Power."];
@@ -6,6 +6,16 @@ const words = ["Precision.", "Safety.", "Power."];
 export default function Hero() {
   const [index, setIndex] = useState(0);
   const [isFirstLoad, setIsFirstLoad] = useState(false);
+  const videoRef = useRef<HTMLVideoElement>(null);
+
+  useEffect(() => {
+    // Aggressively force mobile browsers to trigger autoplay
+    if (videoRef.current) {
+      videoRef.current.defaultMuted = true;
+      videoRef.current.muted = true;
+      videoRef.current.play().catch(e => console.log("Autoplay prevented by mobile browser:", e));
+    }
+  }, []);
 
   useEffect(() => {
     if (!sessionStorage.getItem('walls_preloader_complete')) {
@@ -42,12 +52,13 @@ export default function Hero() {
       {/* Background Image with Overlay */}
       <div className="absolute inset-0 z-0">
         <video 
+          ref={videoRef}
           src="/wallstreeservicesherovid.mp4" 
           autoPlay
           loop
           muted
           playsInline
-          className="w-full h-full object-cover"
+          className="w-full h-full object-cover pointer-events-none"
         />
         <div className="absolute inset-0 bg-enterprise-green/50 mix-blend-multiply"></div>
         <div className="absolute inset-0 bg-gradient-to-r from-enterprise-black/60 via-enterprise-black/20 to-transparent"></div>
