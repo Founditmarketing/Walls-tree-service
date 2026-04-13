@@ -86,22 +86,22 @@ export default function Reviews() {
         {/* Review Cards Carousel */}
         <div className="relative">
           {/* Fade edges */}
+          <style>{`
+            .overflow-x-auto::-webkit-scrollbar {
+              display: none;
+            }
+            @media (min-width: 768px) {
+              .desktop-right-bleed {
+                margin-right: calc(-1 * max(2rem, 50vw - 800px + 2rem));
+              }
+            }
+          `}</style>
           
           <div 
             ref={scrollRef}
             className="flex gap-6 overflow-x-auto snap-x snap-mandatory pb-8 pt-4 -mx-4 px-8 scroll-pl-8 md:ml-0 md:pl-0 md:pr-0 md:scroll-pl-0 desktop-right-bleed"
             style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}
           >
-            <style>{`
-              .overflow-x-auto::-webkit-scrollbar {
-                display: none;
-              }
-              @media (min-width: 768px) {
-                .desktop-right-bleed {
-                  margin-right: calc(-1 * max(2rem, 50vw - 800px + 2rem));
-                }
-              }
-            `}</style>
             
             {reviews.map((review, index) => (
               <div key={index} className="bg-transparent flex-none w-[85%] sm:w-[45%] lg:w-[30%] snap-start flex flex-col justify-between border border-white/20 border-t-4 border-t-action-orange p-8 md:p-10 relative group hover:border-white/40 transition-colors">

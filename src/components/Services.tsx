@@ -89,21 +89,22 @@ export default function Services() {
           <div className="lg:col-span-8 relative">
             {/* Fade edges for carousel effect */}
             
+            <style>{`
+              .overflow-x-auto::-webkit-scrollbar {
+                display: none;
+              }
+              @media (min-width: 768px) {
+                .desktop-right-bleed {
+                  margin-right: calc(-1 * max(2rem, 50vw - 800px + 2rem));
+                }
+              }
+            `}</style>
+            
             <div 
               ref={scrollRef}
               className="flex gap-6 overflow-x-auto snap-x snap-mandatory pb-8 pt-4 -mx-4 px-8 scroll-pl-8 md:ml-0 md:pl-0 md:pr-0 md:scroll-pl-0 desktop-right-bleed"
               style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}
             >
-              <style>{`
-                .overflow-x-auto::-webkit-scrollbar {
-                  display: none;
-                }
-                @media (min-width: 768px) {
-                  .desktop-right-bleed {
-                    margin-right: calc(-1 * max(2rem, 50vw - 800px + 2rem));
-                  }
-                }
-              `}</style>
               {services.map((service, index) => (
                 <div key={index} className="group relative bg-enterprise-black overflow-hidden rounded-none flex-none w-[85%] sm:w-[60%] lg:w-[45%] snap-start shadow-xl border border-white/20 border-t-4 border-t-action-orange hover:border-white/40 transition-colors">
                   <div className="absolute inset-0">
