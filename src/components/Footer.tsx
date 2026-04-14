@@ -1,4 +1,5 @@
 import { Facebook, Instagram, Youtube } from 'lucide-react';
+import { Link } from 'react-router-dom';
 
 export default function Footer() {
   return (
@@ -9,23 +10,23 @@ export default function Footer() {
 
           {/* Column 1: Brand & Contact */}
           <div className="space-y-6">
-            <div className="w-24 md:w-28">
-              <img 
-                src="/wallstreelogo.png" 
-                alt="Walls Tree Service" 
+            <Link to="/" className="inline-block w-20 md:w-24">
+              <img
+                src="/wallstreelogo.png"
+                alt="Walls Tree Service"
                 className="w-full h-auto opacity-90 drop-shadow-lg"
               />
-            </div>
+            </Link>
             <p className="font-sans text-gray-400 text-sm leading-relaxed">
               The Professional Enterprise.<br />
-              Your Danger Tree & Emergency Experts.
+              Your Danger Tree &amp; Emergency Experts.
             </p>
             <div className="space-y-2 pt-4">
               <p className="font-sans text-sm text-gray-400">749 McKeithen Dr.<br />Alexandria, LA 71303</p>
-              <p className="font-heading font-bold text-action-orange text-lg">Phone: (318) 880-6075</p>
+              <a href="tel:3188806075" className="font-heading font-bold text-action-orange text-lg block hover:text-white transition-colors">Phone: (318) 880-6075</a>
               <p className="font-sans text-sm text-gray-400">Hours: OPEN 24/7</p>
             </div>
-            
+
             {/* Social Links */}
             <div className="flex items-center gap-5 pt-4">
               <a href="https://www.facebook.com/wallstreeservice" target="_blank" rel="noreferrer" className="text-gray-400 hover:text-action-orange transition-colors" aria-label="Facebook"><Facebook className="w-5 h-5" /></a>
@@ -43,12 +44,12 @@ export default function Footer() {
               Services
             </h4>
             <ul className="space-y-3 font-sans text-sm text-gray-400">
-              <li><a href="#" className="hover:text-action-orange transition-colors">Professional Tree Removal</a></li>
-              <li><a href="#" className="hover:text-action-orange transition-colors">Expert Pruning & Trimming</a></li>
-              <li><a href="#" className="hover:text-action-orange transition-colors">24/7 Emergency Response</a></li>
-              <li><a href="#" className="hover:text-action-orange transition-colors">Structural Cabling & Bracing</a></li>
-              <li><a href="#" className="hover:text-action-orange transition-colors">Stump Grinding</a></li>
-              <li><a href="#" className="hover:text-action-orange transition-colors">Arborist Consultations</a></li>
+              <li><Link to="/services/tree-removal" className="hover:text-action-orange transition-colors">Professional Tree Removal</Link></li>
+              <li><Link to="/services/tree-pruning-trimming" className="hover:text-action-orange transition-colors">Expert Pruning &amp; Trimming</Link></li>
+              <li><Link to="/services/emergency" className="hover:text-action-orange transition-colors">24/7 Emergency Response</Link></li>
+              <li><Link to="/services/cabling-bracing" className="hover:text-action-orange transition-colors">Structural Cabling &amp; Bracing</Link></li>
+              <li><Link to="/services/danger-tree-removal" className="hover:text-action-orange transition-colors">Danger Tree Removal</Link></li>
+              <li><Link to="/services/tree-inspection" className="hover:text-action-orange transition-colors">Arborist Inspections</Link></li>
             </ul>
           </div>
 
@@ -58,27 +59,26 @@ export default function Footer() {
               Service Areas
             </h4>
             <ul className="space-y-3 font-sans text-sm text-gray-400">
-              <li>Seattle Metro</li>
-              <li>Bellevue & Eastside</li>
-              <li>Redmond</li>
-              <li>Kirkland</li>
-              <li>Issaquah</li>
-              <li>Renton</li>
+              <li>Alexandria, LA</li>
+              <li>Pineville, LA</li>
+              <li>Natchitoches, LA</li>
+              <li>Leesville, LA</li>
+              <li>Marksville, LA</li>
+              <li>Central Louisiana</li>
             </ul>
           </div>
 
-          {/* Column 4: Links */}
+          {/* Column 4: Quick Links */}
           <div>
             <h4 className="font-heading font-bold text-white uppercase tracking-widest text-sm mb-6 border-b border-gray-800 pb-4">
               Quick Links
             </h4>
             <ul className="space-y-3 font-sans text-sm text-gray-400">
-              <li><a href="#about" className="hover:text-action-orange transition-colors">About Us</a></li>
-              <li><a href="#process" className="hover:text-action-orange transition-colors">Our Process</a></li>
-              <li><a href="#reviews" className="hover:text-action-orange transition-colors">Client Reviews</a></li>
-              <li><a href="#" className="hover:text-action-orange transition-colors">Careers</a></li>
-              <li><a href="#" className="hover:text-action-orange transition-colors">FAQ</a></li>
-              <li><a href="#contact" className="hover:text-action-orange transition-colors">Contact</a></li>
+              <li><Link to="/about" className="hover:text-action-orange transition-colors">About Us</Link></li>
+              <li><Link to="/our-work" className="hover:text-action-orange transition-colors">Our Work</Link></li>
+              <li><Link to="/reviews" className="hover:text-action-orange transition-colors">Client Reviews</Link></li>
+              <li><Link to="/contact" className="hover:text-action-orange transition-colors">Contact</Link></li>
+              <li><a href="tel:3188806075" className="hover:text-action-orange transition-colors">Call Now</a></li>
             </ul>
           </div>
 
@@ -90,12 +90,12 @@ export default function Footer() {
             &copy; {new Date().getFullYear()} Walls Tree Service. All rights reserved.
           </p>
           <div className="flex items-center gap-6">
-            <span className="font-sans font-bold text-xs text-gray-400 uppercase tracking-widest">Fully Licensed & Insured</span>
+            <span className="font-sans font-bold text-xs text-gray-400 uppercase tracking-widest">Fully Licensed &amp; Insured</span>
             <span className="font-sans font-bold text-xs text-gray-400 uppercase tracking-widest">ISA Certified</span>
           </div>
           <div className="flex gap-4">
-            <a href="#" className="font-sans text-xs text-gray-500 hover:text-white transition-colors">Privacy Policy</a>
-            <a href="#" className="font-sans text-xs text-gray-500 hover:text-white transition-colors">Terms of Service</a>
+            <span className="font-sans text-xs text-gray-600">Privacy Policy</span>
+            <span className="font-sans text-xs text-gray-600">Terms of Service</span>
           </div>
         </div>
 

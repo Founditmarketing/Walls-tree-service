@@ -1,4 +1,5 @@
 import { ArrowRight } from 'lucide-react';
+import { Link } from 'react-router-dom';
 
 export default function About() {
   return (
@@ -37,9 +38,9 @@ export default function About() {
               </ul>
             </div>
 
-            <button className="bg-action-orange text-white font-heading font-bold uppercase tracking-widest text-sm px-8 py-5 hover:bg-enterprise-black transition-colors rounded-none flex items-center gap-2 w-fit">
+            <Link to="/about" className="bg-action-orange text-white font-heading font-bold uppercase tracking-widest text-sm px-8 py-5 hover:bg-enterprise-black transition-colors rounded-none flex items-center gap-2 w-fit">
               Meet Your Arborist <ArrowRight className="w-4 h-4" />
-            </button>
+            </Link>
           </div>
 
           {/* Right: Modern Bleeding Image with Overlaid Badge */}

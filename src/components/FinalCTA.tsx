@@ -85,9 +85,9 @@ export default function FinalCTA() {
                 <button type="button" className="bg-action-orange text-white font-heading font-bold uppercase tracking-widest text-sm px-6 py-5 hover:bg-white hover:text-action-orange transition-colors rounded-none flex items-center justify-center gap-2 w-full border-2 border-action-orange">
                   Submit Request <ArrowRight className="w-4 h-4" />
                 </button>
-                <button type="button" className="bg-transparent border-2 border-white/40 text-white font-heading font-bold uppercase tracking-widest text-sm px-6 py-5 hover:bg-white hover:text-enterprise-black transition-colors rounded-none flex items-center justify-center gap-2 w-full">
+                <a href="tel:3188806075" className="bg-transparent border-2 border-white/40 text-white font-heading font-bold uppercase tracking-widest text-sm px-6 py-5 hover:bg-white hover:text-enterprise-black transition-colors rounded-none flex items-center justify-center gap-2 w-full">
                   <Phone className="w-4 h-4" /> Call (318) 880-6075
-                </button>
+                </a>
               </div>
             </form>
           </div>

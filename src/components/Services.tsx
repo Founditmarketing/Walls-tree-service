@@ -1,36 +1,42 @@
 import { ArrowRight, ChevronLeft, ChevronRight } from 'lucide-react';
 import { useRef } from 'react';
+import { Link } from 'react-router-dom';
 
 const services = [
   {
     title: "Professional Tree Removal",
     description: "Safely removing large, hazardous, or complex trees with precision and heavy-duty equipment.",
     image: "/wallstreegallery4.jpg",
-    linkText: "Learn Removal Process"
+    linkText: "Learn Removal Process",
+    slug: "tree-removal"
   },
   {
     title: "Expert Pruning & Trimming",
     description: "Enhancing tree structure, health, and appearance with certified arborist expertise and specialized gear.",
     image: "/wallstreegallery12.jpg",
-    linkText: "See Pruning Results"
+    linkText: "See Pruning Results",
+    slug: "tree-pruning-trimming"
   },
   {
     title: "24/7 Emergency Response",
     description: "Immediate deployment for storm damage and critical danger tree situations to secure your property.",
     image: "/wallstreegallery14.jpg",
-    linkText: "Emergency Protocol"
+    linkText: "Emergency Protocol",
+    slug: "emergency"
   },
   {
     title: "Cabling & Bracing",
     description: "Providing structural support to weak branches and multi-trunk trees to prevent failure and extend lifespan.",
     image: "/wallstreebefore.jpg",
-    linkText: "View Support Options"
+    linkText: "View Support Options",
+    slug: "cabling-bracing"
   },
   {
     title: "Stump Grinding",
     description: "Complete removal of unsightly stumps to restore your landscape and prevent pest infestations.",
     image: "/wallstreegalleryafter.jpg",
-    linkText: "Explore Grinding"
+    linkText: "Explore Grinding",
+    slug: "debris-cleanup"
   }
 ];
 
@@ -78,10 +84,10 @@ export default function Services() {
                 </button>
               </div>
 
-              <a href="#all-services" className="hidden lg:inline-flex items-center gap-2 font-heading font-bold text-action-orange uppercase tracking-widest hover:text-enterprise-black transition-colors group">
-                See Complete Service Menu 
+              <Link to="/contact" className="hidden lg:inline-flex items-center gap-2 font-heading font-bold text-action-orange uppercase tracking-widest hover:text-enterprise-black transition-colors group">
+                See Complete Service Menu
                 <ArrowRight className="w-5 h-5 transform group-hover:translate-x-2 transition-transform" />
-              </a>
+              </Link>
             </div>
           </div>
 
@@ -106,40 +112,33 @@ export default function Services() {
               style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}
             >
               {services.map((service, index) => (
-                <div key={index} className="group relative bg-enterprise-black overflow-hidden rounded-none flex-none w-[85%] sm:w-[60%] lg:w-[45%] snap-start shadow-xl border border-white/20 border-t-4 border-t-action-orange hover:border-white/40 transition-colors">
+                <Link key={index} to={`/services/${service.slug}`} className="group relative bg-enterprise-black overflow-hidden rounded-none flex-none w-[85%] sm:w-[60%] lg:w-[45%] snap-start shadow-xl border border-white/20 border-t-4 border-t-action-orange hover:border-white/40 transition-colors">
                   <div className="absolute inset-0">
-                    <img 
-                      src={service.image} 
+                    <img
+                      src={service.image}
                       alt={service.title}
                       className="w-full h-full object-cover opacity-60 group-hover:opacity-40 transition-opacity duration-500"
                       referrerPolicy="no-referrer"
                     />
                   </div>
-                  
-                  {/* Decorative lines inside card */}
                   <div className="absolute top-0 left-8 w-px h-12 bg-white/30 z-20"></div>
                   <div className="absolute bottom-8 right-0 w-12 h-px bg-white/30 z-20"></div>
-
                   <div className="relative z-10 p-8 flex flex-col h-full min-h-[420px] justify-end">
                     <div className="pb-6 border-b border-white/20 mb-6">
-                      <h4 className="font-heading font-light text-3xl text-white uppercase tracking-tight mb-4">
-                        {service.title}
-                      </h4>
-                      <p className="font-sans text-base text-gray-300 line-clamp-3">
-                        {service.description}
-                      </p>
+                      <h4 className="font-heading font-light text-3xl text-white uppercase tracking-tight mb-4">{service.title}</h4>
+                      <p className="font-sans text-base text-gray-300 line-clamp-3">{service.description}</p>
                     </div>
                     <div className="flex items-center justify-between">
-                      <a href="#" className="inline-flex items-center gap-2 font-heading font-bold text-action-orange uppercase tracking-widest hover:text-white transition-colors w-fit text-sm">
+                      <span className="inline-flex items-center gap-2 font-heading font-bold text-action-orange uppercase tracking-widest group-hover:text-white transition-colors w-fit text-sm">
                         {service.linkText}
                         <ArrowRight className="w-4 h-4 hidden md:block" />
-                      </a>
+                      </span>
                       <div className="w-8 h-8 border border-white/20 flex items-center justify-center rotate-45 group-hover:border-action-orange transition-colors">
                         <div className="w-1 h-1 bg-action-orange rounded-full"></div>
                       </div>
                     </div>
                   </div>
-                </div>
+                </Link>
               ))}
               {/* Spacer for end-scroll breathing room */}
               <div className="flex-none w-4 md:w-8 min-[1600px]:w-[calc(50vw-800px+2rem)]"></div>
@@ -147,10 +146,10 @@ export default function Services() {
 
             {/* Navigation Buttons (Mobile) */}
             <div className="flex lg:hidden items-center justify-between mt-4 flex-row-reverse">
-              <a href="#all-services" className="inline-flex items-center gap-1.5 font-heading font-bold text-action-orange uppercase tracking-wider hover:text-enterprise-black transition-colors group text-[11px] sm:text-sm">
-                See Complete Service Menu 
+              <Link to="/contact" className="inline-flex items-center gap-1.5 font-heading font-bold text-action-orange uppercase tracking-wider hover:text-enterprise-black transition-colors group text-[11px] sm:text-sm">
+                See Complete Service Menu
                 <ArrowRight className="w-3 h-3 sm:w-4 sm:h-4 transform group-hover:translate-x-1 transition-transform" />
-              </a>
+              </Link>
               <div className="flex gap-2 sm:gap-3">
                 <button onClick={() => scroll('left')} className="p-3 bg-enterprise-black text-white hover:bg-action-orange transition-colors rounded-none" aria-label="Scroll left">
                   <ChevronLeft className="w-5 h-5" />

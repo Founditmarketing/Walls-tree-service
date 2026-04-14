@@ -1,5 +1,6 @@
 import { useState, useEffect, memo } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
+import { Link } from 'react-router-dom';
 
 const words = ["Precision.", "Safety.", "Power."];
 
@@ -98,9 +99,9 @@ export default function Hero() {
             </h1>
 
             <div className="mt-12 flex flex-col items-start gap-4">
-              <button className="bg-action-orange text-white font-heading font-light uppercase tracking-widest text-sm sm:text-base md:text-xl px-4 sm:px-6 md:px-10 py-4 md:py-6 whitespace-nowrap hover:bg-white hover:text-action-orange transition-colors duration-300 rounded-none border-2 border-action-orange">
+              <Link to="/contact" className="bg-action-orange text-white font-heading font-light uppercase tracking-widest text-sm sm:text-base md:text-xl px-4 sm:px-6 md:px-10 py-4 md:py-6 whitespace-nowrap hover:bg-white hover:text-action-orange transition-colors duration-300 rounded-none border-2 border-action-orange">
                 Get Started - Free Inspection
-              </button>
+              </Link>
               <p className="font-sans font-bold text-white/80 text-[11px] sm:text-xs md:text-base tracking-widest uppercase">
                 Fully Licensed &amp; Insured <span className="text-action-orange mx-1 md:mx-2">|</span> ISA Certified
               </p>
