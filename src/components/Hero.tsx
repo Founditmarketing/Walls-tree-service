@@ -11,41 +11,49 @@ const BackgroundVideo = memo(() => {
     const video = videoRef.current;
     if (!video) return;
 
-    // Set muted as a DOM property — required for iOS Safari autoplay
+    // Set every required property as a DOM property (not just HTML attributes)
     video.muted = true;
+    video.setAttribute('muted', '');
+    video.setAttribute('playsinline', '');
+    video.setAttribute('webkit-playsinline', '');
 
     const tryPlay = () => {
-      video.play().catch(() => {
-        // If autoplay blocked, wait for first user touch and retry
-        const onTouch = () => {
-          video.play().catch(() => {});
-          document.removeEventListener('touchstart', onTouch);
-        };
-        document.addEventListener('touchstart', onTouch, { passive: true });
-      });
+      video.load(); // force reload so iOS re-evaluates the muted state
+      const p = video.play();
+      if (p !== undefined) {
+        p.catch(() => {
+          // Last resort: play on first touch
+          const onTouch = () => {
+            video.play().catch(() => {});
+          };
+          document.addEventListener('touchstart', onTouch, { once: true, passive: true });
+        });
+      }
     };
 
-    if (video.readyState >= 2) {
+    if (video.readyState >= 3) {
       tryPlay();
     } else {
-      video.addEventListener('loadeddata', tryPlay, { once: true });
+      video.addEventListener('canplay', tryPlay, { once: true });
     }
 
     return () => {
-      video.removeEventListener('loadeddata', tryPlay);
+      video.removeEventListener('canplay', tryPlay);
     };
   }, []);
 
   return (
     <video
       ref={videoRef}
-      src="/wallstreeservicesherovid.mp4"
       autoPlay
       loop
       muted
       playsInline
+      preload="auto"
       className="w-full h-full object-cover pointer-events-none"
-    />
+    >
+      <source src="/wallstreeservicesherovid.mp4" type="video/mp4" />
+    </video>
   );
 });
 
