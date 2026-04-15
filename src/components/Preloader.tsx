@@ -50,7 +50,7 @@ export default function Preloader() {
       `}</style>
       
       <div 
-        className={`fixed inset-0 z-[9999] bg-white flex flex-col items-center justify-center transition-opacity duration-[800ms] ${fading ? 'opacity-0 pointer-events-none' : 'opacity-100'}`}
+        className={`fixed inset-0 z-[9999] bg-white/95 backdrop-blur-sm flex flex-col items-center justify-center transition-opacity duration-[800ms] ${fading ? 'opacity-0 pointer-events-none' : 'opacity-100'}`}
       >
         <div className="relative overflow-hidden w-32 md:w-40 py-2 px-2 flex justify-center">
           {/* Base Logo */}
