@@ -190,9 +190,9 @@ export default function Header() {
       </div>
 
       {/* Layer 2: Info Bar (Now underneath, centered) */}
-      <div className="bg-enterprise-green border-b border-black/10 text-white py-2 px-4 md:px-8 text-[10px] md:text-sm font-semibold tracking-wider flex justify-end md:justify-center items-center gap-4 md:gap-8 flex-wrap text-right md:text-center">
-        <div className="flex items-center justify-end md:justify-center gap-4 flex-wrap">
-          <span className="flex items-center gap-2">
+      <div className="bg-enterprise-green border-b border-black/10 text-white py-2 pl-4 pr-1 sm:pr-2 md:px-8 text-[10px] md:text-sm font-semibold tracking-wider flex justify-end md:justify-center items-center gap-4 md:gap-8 flex-wrap text-right md:text-center w-full">
+        <div className="flex items-center justify-end md:justify-center gap-4 flex-wrap w-full md:w-auto">
+          <span className="flex items-center gap-1.5 md:gap-2 justify-end w-full md:w-auto">
             <Phone className="w-3 h-3 md:w-4 md:h-4 text-action-orange" />
             24/7 EMERGENCY: CALL NOW! (318) 880-6075
           </span>
