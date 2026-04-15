@@ -5,34 +5,26 @@ import { Link } from 'react-router-dom';
 const words = ["Precision.", "Safety.", "Power."];
 
 const BackgroundVideo = memo(() => {
-  const videoRef = useRef<HTMLVideoElement>(null);
+  const [isPreloaderDone, setIsPreloaderDone] = useState(() => 
+    !!sessionStorage.getItem('walls_preloader_complete')
+  );
 
   useEffect(() => {
-    const video = videoRef.current;
-    if (!video) return;
+    if (isPreloaderDone) return;
+    // Preloader takes exactly 2600ms to fully unmount
+    const timer = setTimeout(() => {
+      setIsPreloaderDone(true);
+    }, 2600);
+    return () => clearTimeout(timer);
+  }, [isPreloaderDone]);
 
-    // Setting both defaultMuted and muted is the strongest signal to iOS
-    video.defaultMuted = true;
-    video.muted = true;
-
-    // Try playing immediately synchronously
-    const promise = video.play();
-    if (promise !== undefined) {
-      promise.catch(() => {
-        // iOS will block if in Low Power Mode. Fallback to first touch.
-        const onTouch = () => {
-          video.play().catch(() => {});
-          document.removeEventListener('touchstart', onTouch);
-        };
-        document.addEventListener('touchstart', onTouch, { passive: true });
-      });
-    }
-  }, []);
+  if (!isPreloaderDone) {
+    return <div className="absolute inset-0 w-full h-full bg-enterprise-black" />;
+  }
 
   return (
     <div className="absolute inset-0 w-full h-full bg-enterprise-black">
       <video
-        ref={videoRef}
         autoPlay
         loop
         muted
