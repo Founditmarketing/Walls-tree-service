@@ -212,13 +212,13 @@ export default function Header() {
 
       {/* Mobile Menu Overlay Backdrop */}
       <div
-        className={`fixed inset-0 bg-black/60 backdrop-blur-sm z-[90] transition-opacity duration-300 lg:hidden ${isMobileMenuOpen ? 'opacity-100 pointer-events-auto' : 'opacity-0 pointer-events-none'}`}
+        className={`fixed inset-0 bg-black/60 backdrop-blur-sm z-[110] transition-opacity duration-300 lg:hidden ${isMobileMenuOpen ? 'opacity-100 pointer-events-auto' : 'opacity-0 pointer-events-none'}`}
         onClick={() => setIsMobileMenuOpen(false)}
       />
 
       {/* Mobile Menu Slide-Out Drawer */}
       <div
-        className={`fixed top-0 right-0 h-full w-[85vw] sm:w-[400px] bg-enterprise-white z-[100] transform transition-transform duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] lg:hidden flex flex-col shadow-2xl border-l-[6px] border-action-orange ${isMobileMenuOpen ? 'translate-x-0' : 'translate-x-full'}`}
+        className={`fixed top-0 right-0 h-full w-[85vw] sm:w-[400px] bg-enterprise-white z-[120] transform transition-transform duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] lg:hidden flex flex-col shadow-2xl border-l-[6px] border-action-orange ${isMobileMenuOpen ? 'translate-x-0' : 'translate-x-full'}`}
       >
         <div className="flex items-center justify-between p-6 border-b border-gray-200">
           <img src="/wallstreelogo.png" alt="Walls Tree Service" className="w-[50px] opacity-90" />
@@ -232,7 +232,7 @@ export default function Header() {
         </div>
         <nav className="flex flex-col p-8 gap-6 overflow-y-auto flex-grow">
           {/* Home */}
-          <div className="overflow-hidden -mx-2 px-2 py-2 -my-2">
+          <div>
             <Link
               to="/"
               className={`block font-heading font-bold text-2xl uppercase tracking-widest text-enterprise-black hover:text-action-orange transition-all duration-500 ${isMobileMenuOpen ? 'translate-y-0 opacity-100' : 'translate-y-8 opacity-0'}`}
@@ -244,7 +244,7 @@ export default function Header() {
           </div>
 
           {/* Services expandable */}
-          <div className="overflow-hidden -mx-2 px-2 py-2 -my-2">
+          <div>
             <button
               onClick={() => setMobileServicesOpen(!mobileServicesOpen)}
               className={`w-full flex items-center justify-between font-heading font-bold text-2xl uppercase tracking-widest text-enterprise-black hover:text-action-orange transition-all duration-500 ${isMobileMenuOpen ? 'translate-y-0 opacity-100' : 'translate-y-8 opacity-0'}`}
@@ -270,7 +270,7 @@ export default function Header() {
           </div>
 
           {/* Reviews */}
-          <div className="overflow-hidden -mx-2 px-2 py-2 -my-2">
+          <div>
             <Link
               to="/reviews"
               className={`block font-heading font-bold text-2xl uppercase tracking-widest text-enterprise-black hover:text-action-orange transition-all duration-500 ${isMobileMenuOpen ? 'translate-y-0 opacity-100' : 'translate-y-8 opacity-0'}`}
@@ -280,7 +280,7 @@ export default function Header() {
               Reviews
             </Link>
           </div>
-          <div className="overflow-hidden -mx-2 px-2 py-2 -my-2">
+          <div>
             <Link
               to="/our-work"
               className={`block font-heading font-bold text-2xl uppercase tracking-widest text-enterprise-black hover:text-action-orange transition-all duration-500 ${isMobileMenuOpen ? 'translate-y-0 opacity-100' : 'translate-y-8 opacity-0'}`}
@@ -290,7 +290,7 @@ export default function Header() {
               Our Work
             </Link>
           </div>
-          <div className="overflow-hidden -mx-2 px-2 py-2 -my-2">
+          <div>
             <Link
               to="/about"
               className={`block font-heading font-bold text-2xl uppercase tracking-widest text-enterprise-black hover:text-action-orange transition-all duration-500 ${isMobileMenuOpen ? 'translate-y-0 opacity-100' : 'translate-y-8 opacity-0'}`}
@@ -300,7 +300,7 @@ export default function Header() {
               About
             </Link>
           </div>
-          <div className="overflow-hidden -mx-2 px-2">
+          <div>
             <Link
               to="/contact"
               className={`block font-heading font-bold text-2xl uppercase tracking-widest text-enterprise-black hover:text-action-orange transition-all duration-500 ${isMobileMenuOpen ? 'translate-y-0 opacity-100' : 'translate-y-8 opacity-0'}`}
@@ -312,9 +312,13 @@ export default function Header() {
           </div>
 
           <div className={`mt-auto pt-8 border-t border-gray-200 flex flex-col gap-6 transition-all duration-700 delay-300 ${isMobileMenuOpen ? 'translate-y-0 opacity-100' : 'translate-y-8 opacity-0'}`}>
-            <button className="bg-action-orange text-white font-heading font-bold uppercase tracking-wider text-sm px-6 py-5 hover:bg-enterprise-black transition-colors rounded-none w-full shadow-lg">
+            <Link 
+              to="/contact" 
+              onClick={() => setIsMobileMenuOpen(false)}
+              className="text-center bg-action-orange text-white font-heading font-bold uppercase tracking-wider text-sm px-6 py-5 hover:bg-enterprise-black transition-colors rounded-none w-full shadow-lg"
+            >
               Get a Free Quote
-            </button>
+            </Link>
             <div className="flex items-center justify-center gap-6 pb-4">
               <a href="https://www.facebook.com/wallstreeservice" target="_blank" rel="noreferrer" className="text-gray-400 hover:text-action-orange transition-colors"><Facebook className="w-6 h-6" /></a>
               <a href="https://www.instagram.com/walls_tree_service/" target="_blank" rel="noreferrer" className="text-gray-400 hover:text-action-orange transition-colors"><Instagram className="w-6 h-6" /></a>
