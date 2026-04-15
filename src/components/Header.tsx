@@ -234,7 +234,7 @@ export default function Header() {
         </div>
         <nav className="flex flex-col p-8 gap-6 overflow-y-auto flex-grow">
           {/* Home */}
-          <div className="overflow-hidden -mx-2 px-2">
+          <div className="overflow-hidden -mx-2 px-2 py-2 -my-2">
             <Link
               to="/"
               className={`block font-heading font-bold text-2xl uppercase tracking-widest text-enterprise-black hover:text-action-orange transition-all duration-500 ${isMobileMenuOpen ? 'translate-y-0 opacity-100' : 'translate-y-8 opacity-0'}`}
@@ -246,7 +246,7 @@ export default function Header() {
           </div>
 
           {/* Services expandable */}
-          <div className="overflow-hidden -mx-2 px-2">
+          <div className="overflow-hidden -mx-2 px-2 py-2 -my-2">
             <button
               onClick={() => setMobileServicesOpen(!mobileServicesOpen)}
               className={`w-full flex items-center justify-between font-heading font-bold text-2xl uppercase tracking-widest text-enterprise-black hover:text-action-orange transition-all duration-500 ${isMobileMenuOpen ? 'translate-y-0 opacity-100' : 'translate-y-8 opacity-0'}`}
@@ -272,7 +272,7 @@ export default function Header() {
           </div>
 
           {/* Reviews */}
-          <div className="overflow-hidden -mx-2 px-2">
+          <div className="overflow-hidden -mx-2 px-2 py-2 -my-2">
             <Link
               to="/reviews"
               className={`block font-heading font-bold text-2xl uppercase tracking-widest text-enterprise-black hover:text-action-orange transition-all duration-500 ${isMobileMenuOpen ? 'translate-y-0 opacity-100' : 'translate-y-8 opacity-0'}`}
@@ -282,7 +282,7 @@ export default function Header() {
               Reviews
             </Link>
           </div>
-          <div className="overflow-hidden -mx-2 px-2">
+          <div className="overflow-hidden -mx-2 px-2 py-2 -my-2">
             <Link
               to="/our-work"
               className={`block font-heading font-bold text-2xl uppercase tracking-widest text-enterprise-black hover:text-action-orange transition-all duration-500 ${isMobileMenuOpen ? 'translate-y-0 opacity-100' : 'translate-y-8 opacity-0'}`}
@@ -292,7 +292,7 @@ export default function Header() {
               Our Work
             </Link>
           </div>
-          <div className="overflow-hidden -mx-2 px-2">
+          <div className="overflow-hidden -mx-2 px-2 py-2 -my-2">
             <Link
               to="/about"
               className={`block font-heading font-bold text-2xl uppercase tracking-widest text-enterprise-black hover:text-action-orange transition-all duration-500 ${isMobileMenuOpen ? 'translate-y-0 opacity-100' : 'translate-y-8 opacity-0'}`}

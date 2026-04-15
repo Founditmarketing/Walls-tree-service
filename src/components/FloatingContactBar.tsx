@@ -17,21 +17,21 @@ export default function FloatingContactBar() {
     <>
       {/* Floating Bar */}
       <div className="fixed bottom-6 lg:bottom-10 right-4 lg:right-8 z-[100] w-max group">
-        <div className="bg-enterprise-black/90 backdrop-blur-md p-2 shadow-2xl flex flex-col items-center gap-2 border border-white/20 rounded-full">
+        <div className="bg-enterprise-black/90 backdrop-blur-md p-1.5 shadow-2xl flex flex-col items-center gap-1.5 border border-white/20 rounded-full">
           <a 
             href="tel:3188806075" 
-            className="flex items-center justify-center bg-action-orange hover:bg-white hover:text-action-orange text-white p-3 md:p-4 rounded-full transition-all duration-300 shadow-lg"
+            className="flex items-center justify-center bg-action-orange hover:bg-white hover:text-action-orange text-white p-2.5 md:p-3 rounded-full transition-all duration-300 shadow-lg"
             title="Call Us"
           >
-            <Phone className="w-5 h-5 md:w-6 md:h-6" />
+            <Phone className="w-4 h-4 md:w-5 md:h-5" />
           </a>
-          <div className="w-6 h-px bg-white/20"></div>
+          <div className="w-5 h-px bg-white/20"></div>
           <button 
             onClick={() => setIsModalOpen(true)}
-            className="flex items-center justify-center bg-white/10 hover:bg-white/20 text-white p-3 md:p-4 rounded-full transition-all duration-300"
+            className="flex items-center justify-center bg-white/10 hover:bg-white/20 text-white p-2.5 md:p-3 rounded-full transition-all duration-300"
             title="Email Us"
           >
-            <Mail className="w-5 h-5 md:w-6 md:h-6" />
+            <Mail className="w-4 h-4 md:w-5 md:h-5" />
           </button>
         </div>
       </div>
