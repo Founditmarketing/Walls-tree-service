@@ -6,25 +6,25 @@ const words = ["Precision.", "Safety.", "Power."];
 
 const BackgroundVideo = memo(() => {
   const videoRef = useRef<HTMLVideoElement>(null);
+  const [videoVisible, setVideoVisible] = useState(false);
 
   useEffect(() => {
     const video = videoRef.current;
     if (!video) return;
 
-    // Set every required property as a DOM property (not just HTML attributes)
     video.muted = true;
     video.setAttribute('muted', '');
     video.setAttribute('playsinline', '');
     video.setAttribute('webkit-playsinline', '');
 
     const tryPlay = () => {
-      video.load(); // force reload so iOS re-evaluates the muted state
       const p = video.play();
       if (p !== undefined) {
-        p.catch(() => {
-          // Last resort: play on first touch
+        p.then(() => {
+          setVideoVisible(true);
+        }).catch(() => {
           const onTouch = () => {
-            video.play().catch(() => {});
+            video.play().then(() => setVideoVisible(true)).catch(() => {});
           };
           document.addEventListener('touchstart', onTouch, { once: true, passive: true });
         });
@@ -37,23 +37,31 @@ const BackgroundVideo = memo(() => {
       video.addEventListener('canplay', tryPlay, { once: true });
     }
 
-    return () => {
-      video.removeEventListener('canplay', tryPlay);
-    };
+    return () => { video.removeEventListener('canplay', tryPlay); };
   }, []);
 
   return (
-    <video
-      ref={videoRef}
-      autoPlay
-      loop
-      muted
-      playsInline
-      preload="auto"
-      className="w-full h-full object-cover pointer-events-none"
-    >
-      <source src="/wallstreeservicesherovid.mp4" type="video/mp4" />
-    </video>
+    <div className="absolute inset-0 w-full h-full">
+      {/* Poster: shows INSTANTLY, zero wait */}
+      <img
+        src="/wallstreegallery4.jpg"
+        alt=""
+        className="absolute inset-0 w-full h-full object-cover"
+      />
+      {/* Video fades in once buffered enough to play */}
+      <video
+        ref={videoRef}
+        autoPlay
+        loop
+        muted
+        playsInline
+        preload="auto"
+        className="absolute inset-0 w-full h-full object-cover pointer-events-none transition-opacity duration-1000"
+        style={{ opacity: videoVisible ? 1 : 0 }}
+      >
+        <source src="/wallstreeservicesherovid.mp4" type="video/mp4" />
+      </video>
+    </div>
   );
 });
 
