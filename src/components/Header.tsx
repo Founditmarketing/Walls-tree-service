@@ -190,7 +190,7 @@ export default function Header() {
       </div>
 
       {/* Layer 2: Info Bar (Now underneath, centered) */}
-      <div className="bg-enterprise-green border-b border-black/10 text-white py-2 pl-4 pr-1 sm:pr-2 md:px-8 text-[10px] md:text-sm font-semibold tracking-wider flex justify-end md:justify-center items-center gap-4 md:gap-8 flex-wrap text-right md:text-center w-full">
+      <div className="bg-enterprise-green border-b border-black/10 text-white py-1 md:py-2 pl-4 pr-1 sm:pr-2 md:px-8 text-[10px] md:text-sm font-semibold tracking-wider flex justify-end md:justify-center items-center gap-4 md:gap-8 flex-wrap text-right md:text-center w-full">
         <div className="flex items-center justify-end md:justify-center gap-4 flex-wrap w-full md:w-auto">
           <span className="flex items-center gap-1.5 md:gap-2 justify-end w-full md:w-auto">
             <Phone className="w-3 h-3 md:w-4 md:h-4 text-action-orange" />
@@ -200,15 +200,13 @@ export default function Header() {
           <span className="hidden md:inline-block">ISA CERTIFIED</span>
           <span className="hidden md:inline-block text-white/60">|</span>
         </div>
-        <div className="flex items-center justify-end md:justify-center gap-6 flex-wrap">
-          <div className="hidden md:flex items-center gap-3">
-            <a href="https://www.facebook.com/wallstreeservice" target="_blank" rel="noreferrer" className="hover:text-action-orange transition-colors" aria-label="Facebook"><Facebook className="w-4 h-4" /></a>
-            <a href="https://www.instagram.com/walls_tree_service/" target="_blank" rel="noreferrer" className="hover:text-action-orange transition-colors" aria-label="Instagram"><Instagram className="w-4 h-4" /></a>
-            <a href="https://www.tiktok.com/@wallstreeservice" target="_blank" rel="noreferrer" className="hover:text-action-orange transition-colors" aria-label="TikTok">
-              <svg viewBox="0 0 24 24" fill="currentColor" stroke="none" className="w-4 h-4"><path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-5.2 1.74 2.89 2.89 0 0 1 2.31-4.64 2.93 2.93 0 0 1 .88.13V9.4a6.84 6.84 0 0 0-1-.05A6.33 6.33 0 0 0 5 20.1a6.34 6.34 0 0 0 10.86-4.43v-7a8.16 8.16 0 0 0 4.77 1.52v-3.4a4.85 4.85 0 0 1-1-.1z" /></svg>
-            </a>
-            <a href="https://www.youtube.com/@wallstreesvc" target="_blank" rel="noreferrer" className="hover:text-action-orange transition-colors" aria-label="YouTube"><Youtube className="w-4 h-4" /></a>
-          </div>
+        <div className="hidden md:flex items-center justify-center gap-6 flex-wrap">
+          <a href="https://www.facebook.com/wallstreeservice" target="_blank" rel="noreferrer" className="hover:text-action-orange transition-colors" aria-label="Facebook"><Facebook className="w-4 h-4" /></a>
+          <a href="https://www.instagram.com/walls_tree_service/" target="_blank" rel="noreferrer" className="hover:text-action-orange transition-colors" aria-label="Instagram"><Instagram className="w-4 h-4" /></a>
+          <a href="https://www.tiktok.com/@wallstreeservice" target="_blank" rel="noreferrer" className="hover:text-action-orange transition-colors" aria-label="TikTok">
+            <svg viewBox="0 0 24 24" fill="currentColor" stroke="none" className="w-4 h-4"><path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-5.2 1.74 2.89 2.89 0 0 1 2.31-4.64 2.93 2.93 0 0 1 .88.13V9.4a6.84 6.84 0 0 0-1-.05A6.33 6.33 0 0 0 5 20.1a6.34 6.34 0 0 0 10.86-4.43v-7a8.16 8.16 0 0 0 4.77 1.52v-3.4a4.85 4.85 0 0 1-1-.1z" /></svg>
+          </a>
+          <a href="https://www.youtube.com/@wallstreesvc" target="_blank" rel="noreferrer" className="hover:text-action-orange transition-colors" aria-label="YouTube"><Youtube className="w-4 h-4" /></a>
         </div>
       </div>
 
