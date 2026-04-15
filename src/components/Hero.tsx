@@ -5,26 +5,27 @@ import { Link } from 'react-router-dom';
 const words = ["Precision.", "Safety.", "Power."];
 
 const BackgroundVideo = memo(() => {
-  const [isPreloaderDone, setIsPreloaderDone] = useState(() => 
-    !!sessionStorage.getItem('walls_preloader_complete')
-  );
-
-  useEffect(() => {
-    if (isPreloaderDone) return;
-    // Preloader takes exactly 2600ms to fully unmount
-    const timer = setTimeout(() => {
-      setIsPreloaderDone(true);
-    }, 2600);
-    return () => clearTimeout(timer);
-  }, [isPreloaderDone]);
-
-  if (!isPreloaderDone) {
-    return <div className="absolute inset-0 w-full h-full bg-enterprise-black" />;
-  }
-
   return (
     <div className="absolute inset-0 w-full h-full bg-enterprise-black">
       <video
+        ref={(el) => {
+          if (el) {
+            el.defaultMuted = true;
+            el.muted = true;
+            el.playsInline = true;
+            
+            // Try playing synchronously as soon as the DOM element exists
+            const p = el.play();
+            if (p !== undefined) {
+              p.catch(() => {
+                // If iOS strictly blocks it, fallback to the very first time the user touches the screen
+                document.addEventListener('touchstart', () => {
+                  el.play().catch(() => {});
+                }, { once: true, passive: true });
+              });
+            }
+          }
+        }}
         autoPlay
         loop
         muted
