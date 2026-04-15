@@ -1,28 +1,53 @@
-import { useState, useEffect, memo } from 'react';
+import { useState, useEffect, useRef, memo } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
 import { Link } from 'react-router-dom';
 
 const words = ["Precision.", "Safety.", "Power."];
 
-const BackgroundVideo = memo(() => (
-  <div 
-    className="absolute inset-0 w-full h-full"
-    dangerouslySetInnerHTML={{
-      __html: `
-        <video 
-          src="/wallstreeservicesherovid.mp4" 
-          autoplay="autoplay" 
-          loop="loop" 
-          muted="muted" 
-          playsinline="playsinline"
-          webkit-playsinline="true"
-          onended="this.play()"
-          class="w-full h-full object-cover pointer-events-none"
-        ></video>
-      `
-    }}
-  />
-));
+const BackgroundVideo = memo(() => {
+  const videoRef = useRef<HTMLVideoElement>(null);
+
+  useEffect(() => {
+    const video = videoRef.current;
+    if (!video) return;
+
+    // Set muted as a DOM property — required for iOS Safari autoplay
+    video.muted = true;
+
+    const tryPlay = () => {
+      video.play().catch(() => {
+        // If autoplay blocked, wait for first user touch and retry
+        const onTouch = () => {
+          video.play().catch(() => {});
+          document.removeEventListener('touchstart', onTouch);
+        };
+        document.addEventListener('touchstart', onTouch, { passive: true });
+      });
+    };
+
+    if (video.readyState >= 2) {
+      tryPlay();
+    } else {
+      video.addEventListener('loadeddata', tryPlay, { once: true });
+    }
+
+    return () => {
+      video.removeEventListener('loadeddata', tryPlay);
+    };
+  }, []);
+
+  return (
+    <video
+      ref={videoRef}
+      src="/wallstreeservicesherovid.mp4"
+      autoPlay
+      loop
+      muted
+      playsInline
+      className="w-full h-full object-cover pointer-events-none"
+    />
+  );
+});
 
 export default function Hero() {
   const [index, setIndex] = useState(0);
