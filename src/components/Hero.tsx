@@ -10,21 +10,38 @@ const BackgroundVideo = memo(() => {
   useEffect(() => {
     const video = videoRef.current;
     if (!video) return;
+
     video.muted = true;
     video.setAttribute('muted', '');
     video.setAttribute('playsinline', '');
     video.setAttribute('webkit-playsinline', '');
-    const tryPlay = () => {
-      const p = video.play();
-      if (p !== undefined) {
-        p.catch(() => {
-          document.addEventListener('touchstart', () => video.play().catch(() => {}), { once: true, passive: true });
-        });
-      }
+
+    const doPlay = () => {
+      video.play().catch(() => {
+        // Fallback: play on first touch (iOS strict mode)
+        document.addEventListener('touchstart', () => video.play().catch(() => {}), { once: true, passive: true });
+      });
     };
-    if (video.readyState >= 3) { tryPlay(); }
-    else { video.addEventListener('canplay', tryPlay, { once: true }); }
-    return () => { video.removeEventListener('canplay', tryPlay); };
+
+    const isFirstVisit = !sessionStorage.getItem('walls_preloader_complete');
+
+    if (isFirstVisit) {
+      // Preloader runs for 2600ms — poll until it's done, then play
+      const interval = setInterval(() => {
+        if (sessionStorage.getItem('walls_preloader_complete')) {
+          clearInterval(interval);
+          doPlay();
+        }
+      }, 100);
+      // Safety timeout: play after 3s no matter what
+      const safety = setTimeout(() => { clearInterval(interval); doPlay(); }, 3000);
+      return () => { clearInterval(interval); clearTimeout(safety); };
+    } else {
+      // Return visit: no preloader, play immediately on canplay
+      if (video.readyState >= 3) { doPlay(); }
+      else { video.addEventListener('canplay', doPlay, { once: true }); }
+      return () => { video.removeEventListener('canplay', doPlay); };
+    }
   }, []);
 
   return (
