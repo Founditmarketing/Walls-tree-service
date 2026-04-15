@@ -5,24 +5,44 @@ import { Link } from 'react-router-dom';
 const words = ["Precision.", "Safety.", "Power."];
 
 const BackgroundVideo = memo(() => {
+  const videoRef = useRef<HTMLVideoElement>(null);
+
+  useEffect(() => {
+    const video = videoRef.current;
+    if (!video) return;
+
+    // Setting both defaultMuted and muted is the strongest signal to iOS
+    video.defaultMuted = true;
+    video.muted = true;
+
+    // Try playing immediately synchronously
+    const promise = video.play();
+    if (promise !== undefined) {
+      promise.catch(() => {
+        // iOS will block if in Low Power Mode. Fallback to first touch.
+        const onTouch = () => {
+          video.play().catch(() => {});
+          document.removeEventListener('touchstart', onTouch);
+        };
+        document.addEventListener('touchstart', onTouch, { passive: true });
+      });
+    }
+  }, []);
+
   return (
-    <div 
-      className="absolute inset-0 w-full h-full bg-enterprise-black"
-      dangerouslySetInnerHTML={{
-        __html: `
-          <video 
-            src="/wallstreeservicesherovid.mp4" 
-            autoplay="autoplay" 
-            loop="loop" 
-            muted="muted" 
-            playsinline="playsinline"
-            webkit-playsinline="true"
-            preload="auto"
-            class="w-full h-full object-cover pointer-events-none"
-          ></video>
-        `
-      }}
-    />
+    <div className="absolute inset-0 w-full h-full bg-enterprise-black">
+      <video
+        ref={videoRef}
+        autoPlay
+        loop
+        muted
+        playsInline
+        preload="auto"
+        className="w-full h-full object-cover"
+      >
+        <source src="/wallstreeservicesherovid.mp4" type="video/mp4" />
+      </video>
+    </div>
   );
 });
 
