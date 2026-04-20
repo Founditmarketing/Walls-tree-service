@@ -170,12 +170,12 @@ export default function ReviewsPage() {
               </p>
               <div className="flex flex-col sm:flex-row gap-4">
                 <a
-                  href="https://www.google.com/search?q=Walls+Tree+Service+Alexandria+LA"
+                  href="https://www.google.com/maps/place/Walls+Tree+Service/@31.2814292,-92.5398991,17z/data=!4m8!3m7!1s0x863ab75ca69d38b5:0x4247560a5bf954fe!8m2!3d31.2814292!4d-92.5398991!9m1!1b1!16s%2Fg%2F11rd92mb0_?entry=ttu&g_ep=EgoyMDI2MDQxNC4wIKXMDSoASAFQAw%3D%3D"
                   target="_blank"
                   rel="noreferrer"
                   className="group bg-action-orange text-white font-heading font-bold uppercase tracking-widest text-sm px-8 py-4 hover:bg-enterprise-black transition-colors flex items-center justify-center gap-2"
                 >
-                  Review on Google <ExternalLink className="w-4 h-4" />
+                  Leave a Google Review <ExternalLink className="w-4 h-4" />
                 </a>
                 <a
                   href="https://www.facebook.com/wallstreeservice"

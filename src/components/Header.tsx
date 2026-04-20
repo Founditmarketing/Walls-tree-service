@@ -164,6 +164,7 @@ export default function Header() {
             <Link to="/our-work" className="font-sans font-bold text-sm uppercase tracking-widest text-enterprise-black hover:text-white transition-colors">Our Work</Link>
             <Link to="/about" className="font-sans font-bold text-sm uppercase tracking-widest text-enterprise-black hover:text-white transition-colors">About</Link>
             <Link to="/contact" className="font-sans font-bold text-sm uppercase tracking-widest text-enterprise-black hover:text-white transition-colors">Contact</Link>
+            <Link to="/blog" className="font-sans font-bold text-sm uppercase tracking-widest text-enterprise-black hover:text-white transition-colors">Blog</Link>
           </nav>
 
           {/* CTA & Mobile Toggle */}
@@ -308,6 +309,16 @@ export default function Header() {
               onClick={() => setIsMobileMenuOpen(false)}
             >
               Contact
+            </Link>
+          </div>
+          <div>
+            <Link
+              to="/blog"
+              className={`block font-heading font-bold text-2xl uppercase tracking-widest text-enterprise-black hover:text-action-orange transition-all duration-500 ${isMobileMenuOpen ? 'translate-y-0 opacity-100' : 'translate-y-8 opacity-0'}`}
+              style={{ transitionDelay: `${6 * 75}ms` }}
+              onClick={() => setIsMobileMenuOpen(false)}
+            >
+              Blog
             </Link>
           </div>
 

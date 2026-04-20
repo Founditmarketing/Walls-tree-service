@@ -7,7 +7,7 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import Header from './components/Header';
 import Hero from './components/Hero';
 import Services from './components/Services';
-import ServiceAreaBanner from './components/ServiceAreaBanner';
+import ServiceLevels from './components/ServiceLevels';
 import About from './components/About';
 import TrustBanner from './components/TrustBanner';
 import Reviews from './components/Reviews';
@@ -22,6 +22,11 @@ import AboutPage from './pages/AboutPage';
 import ReviewsPage from './pages/ReviewsPage';
 import ServicePage from './pages/ServicePage';
 import OurWorkPage from './pages/OurWorkPage';
+import BlogPage from './pages/BlogPage';
+import BlogPostPage from './pages/BlogPostPage';
+import GalleryPage from './pages/GalleryPage';
+import ServiceAreasPage from './pages/ServiceAreasPage';
+import CareersPage from './pages/CareersPage';
 
 function HomePage() {
   return (
@@ -31,7 +36,7 @@ function HomePage() {
       <main>
         <Hero />
         <Services />
-        <ServiceAreaBanner />
+        <ServiceLevels />
         <About />
         <TrustBanner />
         <Reviews />
@@ -55,6 +60,11 @@ export default function App() {
         <Route path="/reviews" element={<ReviewsPage />} />
         <Route path="/services/:slug" element={<ServicePage />} />
         <Route path="/our-work" element={<OurWorkPage />} />
+        <Route path="/blog" element={<BlogPage />} />
+        <Route path="/blog/:slug" element={<BlogPostPage />} />
+        <Route path="/gallery" element={<GalleryPage />} />
+        <Route path="/service-areas" element={<ServiceAreasPage />} />
+        <Route path="/careers" element={<CareersPage />} />
       </Routes>
     </BrowserRouter>
   );

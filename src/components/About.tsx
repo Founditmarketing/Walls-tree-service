@@ -49,12 +49,12 @@ export default function About() {
             {/* Clean Hero Portrait */}
             <div className="relative h-[450px] md:h-[500px] lg:h-auto -mb-24 md:-mb-32 lg:mb-0 lg:absolute lg:-top-32 lg:-bottom-32 lg:left-0 lg:right-0 overflow-hidden group desktop-right-bleed">
               <img
-                src="/wallstreeowner.png"
+                src="/wallstree_about_3.png"
                 alt="Walls Tree Service Crew"
                 className="w-full h-full object-cover"
                 referrerPolicy="no-referrer"
               />
-              
+
               {/* Floating Badge Over Image */}
               <div className="absolute bottom-12 md:bottom-20 left-1/2 -translate-x-1/2 z-30 bg-enterprise-green border-4 border-action-orange py-3 px-8 md:py-4 md:px-14 shadow-2xl transition-transform duration-500 w-max min-w-[280px] sm:min-w-[380px]">
                 <div className="flex items-center justify-center gap-5 md:gap-8">
@@ -66,7 +66,7 @@ export default function About() {
                   <div className="flex flex-col">
                     <span className="font-heading font-bold text-action-orange uppercase tracking-widest text-sm mb-1">Years</span>
                     <p className="font-sans font-bold text-[10px] md:text-xs text-gray-300 uppercase tracking-widest leading-relaxed">
-                      Of Trusted<br/>Excellence
+                      Of Trusted<br />Excellence
                     </p>
                   </div>
                 </div>

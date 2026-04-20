@@ -29,9 +29,9 @@ const GALLERY: GalleryItem[] = [
   { src: '/wallstreebefore.jpg',        alt: 'Before – overgrown tree',               category: 'Before & After' },
   { src: '/wallstreegalleryafter.jpg',  alt: 'After – clean property',               category: 'Before & After' },
   { src: '/wallstreegallery.png',       alt: 'Cleared lot transformation',            category: 'Before & After' },
-  { src: '/wallstreeownerandtruck.png', alt: 'Walls Tree Service crew and equipment', category: 'Crew & Equipment' },
-  { src: '/wallstreeowner.png',         alt: 'Owner on job site',                     category: 'Crew & Equipment' },
-  { src: '/wallstreeowner2.png',        alt: 'Arborist in the field',                 category: 'Crew & Equipment' },
+  { src: '/wallstree_about_1.png', alt: 'Walls Tree Service crew and equipment', category: 'Crew & Equipment' },
+  { src: '/wallstree_about_2.png',         alt: 'Walls Tree Service team on job site',                     category: 'Crew & Equipment' },
+  { src: '/wallstree_about_3.png',        alt: 'Crew in the field',                 category: 'Crew & Equipment' },
   { src: '/wallstreegallery9.jpg',      alt: 'Tree inspection walkthrough',           category: 'Crew & Equipment' },
   { src: '/wallstreegallery10.jpg',     alt: 'Heavy equipment on site',               category: 'Crew & Equipment' },
 ];

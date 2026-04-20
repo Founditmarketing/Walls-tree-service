@@ -28,7 +28,7 @@ const PAGE = {
   title: 'About',
   titleAccent: 'Walls',
   subtitle: 'Family-Owned Passion. Enterprise-Level Results.',
-  heroImage: '/wallstreeowner.png',
+  heroImage: '/wallstree_about_4.png',
   heroImageAlt: 'Walls Tree Service owner and crew',
 };
 
@@ -159,7 +159,7 @@ export default function AboutPage() {
             {/* Right: Image */}
             <div className="relative">
               <img
-                src="/wallstreeownerandtruck.png"
+                src="/wallstree_about_2.png"
                 alt={PAGE.heroImageAlt}
                 className="w-full h-[520px] object-cover"
               />

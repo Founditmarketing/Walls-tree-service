@@ -64,6 +64,26 @@ export default function ContactPage() {
                   </div>
 
                   <div className="space-y-2">
+                    <label className="font-sans font-bold text-xs text-gray-500 uppercase tracking-widest">Street Address</label>
+                    <input type="text" placeholder="123 Main St" className="w-full p-4 bg-gray-50 border-2 border-gray-200 font-sans text-enterprise-black placeholder:text-gray-400 focus:border-action-orange focus:outline-none rounded-none transition-colors" />
+                  </div>
+
+                  <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
+                    <div className="space-y-2 sm:col-span-1">
+                      <label className="font-sans font-bold text-xs text-gray-500 uppercase tracking-widest">City</label>
+                      <input type="text" placeholder="Alexandria" className="w-full p-4 bg-gray-50 border-2 border-gray-200 font-sans text-enterprise-black placeholder:text-gray-400 focus:border-action-orange focus:outline-none rounded-none transition-colors" />
+                    </div>
+                    <div className="space-y-2">
+                      <label className="font-sans font-bold text-xs text-gray-500 uppercase tracking-widest">State</label>
+                      <input type="text" placeholder="LA" maxLength={2} className="w-full p-4 bg-gray-50 border-2 border-gray-200 font-sans text-enterprise-black placeholder:text-gray-400 focus:border-action-orange focus:outline-none rounded-none transition-colors" />
+                    </div>
+                    <div className="space-y-2">
+                      <label className="font-sans font-bold text-xs text-gray-500 uppercase tracking-widest">Zip Code</label>
+                      <input type="text" placeholder="71303" maxLength={10} className="w-full p-4 bg-gray-50 border-2 border-gray-200 font-sans text-enterprise-black placeholder:text-gray-400 focus:border-action-orange focus:outline-none rounded-none transition-colors" />
+                    </div>
+                  </div>
+
+                  <div className="space-y-2">
                     <label className="font-sans font-bold text-xs text-gray-500 uppercase tracking-widest">Service Needed</label>
                     <select className="w-full p-4 bg-gray-50 border-2 border-gray-200 font-sans text-enterprise-black focus:border-action-orange focus:outline-none rounded-none appearance-none transition-colors cursor-pointer">
                       <option value="">Select a service…</option>
@@ -72,6 +92,19 @@ export default function ContactPage() {
                       <option>Emergency Service</option>
                       <option>Stump Grinding</option>
                       <option>Cabling &amp; Bracing</option>
+                      <option>Other</option>
+                    </select>
+                  </div>
+
+                  <div className="space-y-2">
+                    <label className="font-sans font-bold text-xs text-gray-500 uppercase tracking-widest">How Did You Hear About Us?</label>
+                    <select className="w-full p-4 bg-gray-50 border-2 border-gray-200 font-sans text-enterprise-black focus:border-action-orange focus:outline-none rounded-none appearance-none transition-colors cursor-pointer">
+                      <option value="">Select one…</option>
+                      <option>Referral</option>
+                      <option>Google</option>
+                      <option>Social Media</option>
+                      <option>Email</option>
+                      <option>Signage</option>
                       <option>Other</option>
                     </select>
                   </div>

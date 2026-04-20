@@ -75,8 +75,21 @@ export default function Footer() {
             </h4>
             <ul className="space-y-3 font-sans text-sm text-gray-400">
               <li><Link to="/about" className="hover:text-action-orange transition-colors">About Us</Link></li>
+              <li><Link to="/gallery" className="hover:text-action-orange transition-colors">Gallery</Link></li>
               <li><Link to="/our-work" className="hover:text-action-orange transition-colors">Our Work</Link></li>
+              <li><Link to="/service-areas" className="hover:text-action-orange transition-colors">Service Areas</Link></li>
               <li><Link to="/reviews" className="hover:text-action-orange transition-colors">Client Reviews</Link></li>
+              <li>
+                <a
+                  href="https://www.google.com/maps/place/Walls+Tree+Service/@31.2814292,-92.5398991,17z/data=!4m8!3m7!1s0x863ab75ca69d38b5:0x4247560a5bf954fe!8m2!3d31.2814292!4d-92.5398991!9m1!1b1!16s%2Fg%2F11rd92mb0_?entry=ttu&g_ep=EgoyMDI2MDQxNC4wIKXMDSoASAFQAw%3D%3D"
+                  target="_blank"
+                  rel="noreferrer"
+                  className="hover:text-action-orange transition-colors"
+                >
+                  Leave a Review ↗
+                </a>
+              </li>
+              <li><Link to="/careers" className="hover:text-action-orange transition-colors">Careers</Link></li>
               <li><Link to="/contact" className="hover:text-action-orange transition-colors">Contact</Link></li>
               <li><a href="tel:3188806075" className="hover:text-action-orange transition-colors">Call Now</a></li>
             </ul>
