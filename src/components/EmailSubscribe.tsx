@@ -9,6 +9,7 @@ export default function EmailSubscribe() {
     e.preventDefault();
     if (!email) return;
     setDone(true);
+    window.dispatchEvent(new Event('formSubmitted'));
   };
 
   return (

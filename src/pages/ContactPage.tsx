@@ -10,6 +10,7 @@ export default function ContactPage() {
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     setSubmitted(true);
+    window.dispatchEvent(new Event('formSubmitted'));
   };
 
   return (

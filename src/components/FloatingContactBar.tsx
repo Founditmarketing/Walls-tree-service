@@ -69,7 +69,7 @@ export default function FloatingContactBar() {
                 Connect with our certified arborists today. We respond to all inquiries within hours.
               </p>
               
-              <form className="space-y-4 md:space-y-5" onSubmit={(e) => e.preventDefault()}>
+              <form className="space-y-4 md:space-y-5" onSubmit={(e) => { e.preventDefault(); window.dispatchEvent(new Event('formSubmitted')); setIsModalOpen(false); }}>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-5">
                   <div>
                     <label htmlFor="name" className="block text-[10px] font-bold text-gray-500 uppercase tracking-widest mb-1.5">First & Last Name</label>

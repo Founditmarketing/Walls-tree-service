@@ -28,6 +28,7 @@ import BlogPostPage from './pages/BlogPostPage';
 import GalleryPage from './pages/GalleryPage';
 import ServiceAreasPage from './pages/ServiceAreasPage';
 import CareersPage from './pages/CareersPage';
+import SubmissionVideoPopup from './components/SubmissionVideoPopup';
 
 function HomePage() {
   return (
@@ -65,6 +66,7 @@ export default function App() {
   return (
     <BrowserRouter>
       <ScrollToTop />
+      <SubmissionVideoPopup />
       <Routes>
         <Route path="/" element={<HomePage />} />
         <Route path="/contact" element={<ContactPage />} />

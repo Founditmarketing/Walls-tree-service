@@ -161,7 +161,7 @@ export default function CareersPage() {
               <button onClick={() => setSubmitted(false)} className="mt-4 font-sans text-sm text-action-orange underline underline-offset-4">Submit another</button>
             </div>
           ) : (
-            <form onSubmit={(e) => { e.preventDefault(); setSubmitted(true); }} className="space-y-6">
+            <form onSubmit={(e) => { e.preventDefault(); setSubmitted(true); window.dispatchEvent(new Event('formSubmitted')); }} className="space-y-6">
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
                 <div className="space-y-2">
                   <label className="font-sans font-bold text-xs text-gray-500 uppercase tracking-widest">Full Name *</label>

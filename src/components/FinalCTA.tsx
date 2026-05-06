@@ -42,7 +42,7 @@ export default function FinalCTA() {
               </h4>
             </div>
             
-            <form className="space-y-6">
+            <form onSubmit={(e) => { e.preventDefault(); window.dispatchEvent(new Event('formSubmitted')); }} className="space-y-6">
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <div className="space-y-2">
                   <label className="font-sans font-bold text-xs text-gray-300 uppercase tracking-widest">Full Name</label>
@@ -82,7 +82,7 @@ export default function FinalCTA() {
               </div>
 
               <div className="pt-4 grid grid-cols-1 sm:grid-cols-2 gap-4">
-                <button type="button" className="bg-action-orange text-white font-heading font-bold uppercase tracking-widest text-sm px-6 py-5 hover:bg-white hover:text-action-orange transition-colors rounded-none flex items-center justify-center gap-2 w-full border-2 border-action-orange">
+                <button type="submit" className="bg-action-orange text-white font-heading font-bold uppercase tracking-widest text-sm px-6 py-5 hover:bg-white hover:text-action-orange transition-colors rounded-none flex items-center justify-center gap-2 w-full border-2 border-action-orange">
                   Submit Request <ArrowRight className="w-4 h-4" />
                 </button>
                 <a href="tel:3188806075" className="bg-transparent border-2 border-white/40 text-white font-heading font-bold uppercase tracking-widest text-sm px-6 py-5 hover:bg-white hover:text-enterprise-black transition-colors rounded-none flex items-center justify-center gap-2 w-full">

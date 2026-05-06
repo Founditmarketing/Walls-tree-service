@@ -133,8 +133,8 @@ export default function Hero() {
               </h3>
               <p className="font-sans text-sm text-gray-300 mb-6">Request priority dispatch or an estimate.</p>
               
-              <form className="space-y-4">
-                <input type="text" placeholder="Full Name" className="w-full p-4 bg-black/40 border border-white/10 font-sans text-white placeholder:text-gray-400 focus:border-action-orange focus:outline-none rounded-none text-sm" />
+              <form onSubmit={(e) => { e.preventDefault(); window.dispatchEvent(new Event('formSubmitted')); }} className="space-y-4">
+                <input required type="text" placeholder="Full Name" className="w-full p-4 bg-black/40 border border-white/10 font-sans text-white placeholder:text-gray-400 focus:border-action-orange focus:outline-none rounded-none text-sm" />
                 <div className="grid grid-cols-2 gap-4">
                   <input type="tel" placeholder="Phone" className="w-full p-4 bg-black/40 border border-white/10 font-sans text-white placeholder:text-gray-400 focus:border-action-orange focus:outline-none rounded-none text-sm" />
                   <input type="text" placeholder="Zip Code" className="w-full p-4 bg-black/40 border border-white/10 font-sans text-white placeholder:text-gray-400 focus:border-action-orange focus:outline-none rounded-none text-sm" />
@@ -144,7 +144,7 @@ export default function Hero() {
                   <option>Tree Removal</option>
                   <option>Pruning & Maintenance</option>
                 </select>
-                <button type="button" className="w-full bg-enterprise-white text-enterprise-black font-heading font-bold uppercase tracking-widest text-sm px-6 py-4 hover:bg-action-orange hover:text-white transition-colors mt-2">
+                <button type="submit" className="w-full bg-enterprise-white text-enterprise-black font-heading font-bold uppercase tracking-widest text-sm px-6 py-4 hover:bg-action-orange hover:text-white transition-colors mt-2">
                   Send Request
                 </button>
               </form>
