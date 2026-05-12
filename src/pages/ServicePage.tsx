@@ -134,7 +134,7 @@ export default function ServicePage() {
               <div className="space-y-5">
                 {[
                   { stat: '20+', text: 'Years serving Central Louisiana' },
-                  { stat: '5.0★', text: '283 verified Google reviews' },
+                  { stat: '5.0★', text: '280+ verified Google reviews' },
                   { stat: 'ISA', text: 'Certified arborists on every job' },
                   { stat: '24/7', text: 'Emergency crews on standby' },
                 ].map(({ stat, text }) => (

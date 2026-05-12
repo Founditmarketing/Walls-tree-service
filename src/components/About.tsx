@@ -39,7 +39,7 @@ export default function About() {
             </div>
 
             <Link to="/about" className="bg-action-orange text-white font-heading font-bold uppercase tracking-widest text-sm px-8 py-5 hover:bg-enterprise-black transition-colors rounded-none flex items-center gap-2 w-fit">
-              Meet Your Arborist <ArrowRight className="w-4 h-4" />
+              Learn More <ArrowRight className="w-4 h-4" />
             </Link>
           </div>
 

@@ -1,22 +1,26 @@
 import Header from '../components/Header';
 import Footer from '../components/Footer';
 import FloatingContactBar from '../components/FloatingContactBar';
-import { Play } from 'lucide-react';
+import { Play, X, ChevronLeft, ChevronRight } from 'lucide-react';
 import { useState } from 'react';
 
 const PHOTOS = [
-  '/wallstreegallery1.jpeg',
   '/wallstreegallery2.jpeg',
   '/wallstreegallery3.jpeg',
-  '/wallstreegallery4.jpeg',
+  '/wallstreegallery4.jpg',
   '/wallstreegallery5.jpeg',
   '/wallstreegallery6.jpeg',
+  '/wallstreegallery7.jpg',
+  '/wallstreegallery8.jpg',
+  '/wallstreegallery9.jpg',
+  '/wallstreegallery10.jpg',
+  '/wallstreegallery11.jpg',
+  '/wallstreegallery12.jpg',
+  '/wallstreegallery13.jpg',
   '/stump-grinding.jpg',
   '/drought-care-tyler.jpg',
   '/rapides-parish-pro-tree-service.jpg',
   '/pine-trees-trim-louisiana.jpg',
-  '/tree-inspection-safety.jpg',
-  '/january-tree-care.jpg',
 ];
 
 const VIDEOS = [
@@ -72,6 +76,21 @@ function VideoCard({ video }: { video: typeof VIDEOS[0] }) {
 
 export default function GalleryPage() {
   const [filter, setFilter] = useState<Filter>('all');
+  const [lightboxIndex, setLightboxIndex] = useState<number | null>(null);
+
+  const nextImage = (e: React.MouseEvent) => {
+    e.stopPropagation();
+    if (lightboxIndex !== null) {
+      setLightboxIndex((lightboxIndex + 1) % PHOTOS.length);
+    }
+  };
+
+  const prevImage = (e: React.MouseEvent) => {
+    e.stopPropagation();
+    if (lightboxIndex !== null) {
+      setLightboxIndex((lightboxIndex - 1 + PHOTOS.length) % PHOTOS.length);
+    }
+  };
 
   return (
     <div className="min-h-screen bg-enterprise-white">
@@ -143,14 +162,19 @@ export default function GalleryPage() {
               )}
               <div className="grid grid-cols-2 md:grid-cols-3 xl:grid-cols-4 gap-px bg-gray-200">
                 {PHOTOS.map((src, i) => (
-                  <div key={i} className="aspect-square overflow-hidden bg-enterprise-black group">
+                  <button 
+                    key={i} 
+                    onClick={() => setLightboxIndex(i)}
+                    className="aspect-square overflow-hidden bg-enterprise-black group relative cursor-zoom-in border-none p-0 w-full"
+                  >
                     <img
                       src={src}
                       alt={`Walls Tree Service job ${i + 1}`}
                       className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                       loading="lazy"
                     />
-                  </div>
+                    <div className="absolute inset-0 bg-enterprise-black/0 group-hover:bg-enterprise-black/20 transition-colors duration-300" />
+                  </button>
                 ))}
               </div>
             </div>
@@ -179,6 +203,46 @@ export default function GalleryPage() {
 
       <Footer />
       <FloatingContactBar />
+
+      {/* Lightbox Modal */}
+      {lightboxIndex !== null && (
+        <div 
+          className="fixed inset-0 z-[100] bg-black/95 flex items-center justify-center backdrop-blur-sm"
+          onClick={() => setLightboxIndex(null)}
+        >
+          <button 
+            className="absolute top-6 right-6 md:top-10 md:right-10 text-white/70 hover:text-white bg-white/10 hover:bg-white/20 p-2 rounded-full transition-all"
+            onClick={() => setLightboxIndex(null)}
+          >
+            <X className="w-8 h-8" />
+          </button>
+          
+          <button 
+            className="absolute left-4 md:left-10 top-1/2 -translate-y-1/2 text-white/70 hover:text-white bg-white/10 hover:bg-white/20 p-3 rounded-full transition-all"
+            onClick={prevImage}
+          >
+            <ChevronLeft className="w-8 h-8 md:w-12 md:h-12" />
+          </button>
+          
+          <img 
+            src={PHOTOS[lightboxIndex]} 
+            alt="Gallery fullscreen" 
+            className="max-h-[85vh] max-w-[90vw] object-contain shadow-2xl rounded-sm"
+            onClick={(e) => e.stopPropagation()}
+          />
+          
+          <button 
+            className="absolute right-4 md:right-10 top-1/2 -translate-y-1/2 text-white/70 hover:text-white bg-white/10 hover:bg-white/20 p-3 rounded-full transition-all"
+            onClick={nextImage}
+          >
+            <ChevronRight className="w-8 h-8 md:w-12 md:h-12" />
+          </button>
+          
+          <div className="absolute bottom-6 left-1/2 -translate-x-1/2 text-white/50 font-sans tracking-widest text-sm uppercase">
+            {lightboxIndex + 1} / {PHOTOS.length}
+          </div>
+        </div>
+      )}
     </div>
   );
 }
