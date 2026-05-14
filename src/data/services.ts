@@ -27,13 +27,13 @@ export const SERVICES: ServiceData[] = [
     label: 'Professional Service',
     title: 'Tree',
     titleAccent: 'Removal',
-    heroImage: '/wallstreegallery4.jpg',
+    heroImage: '/tree-removal-nwi.png',
     tagline: 'Safe. Efficient. Enterprise-Level.',
     intro: [
       "When a tree needs to come down, there is no room for error. Walls Tree Service brings high-capacity cranes, specialized rigging, and ISA-certified arborists to remove trees of any size — safely and completely.",
       "From single-tree removals in tight suburban yards to full commercial land clearing, our crews execute every job with precision planning, zero property damage, and complete cleanup included.",
     ],
-    bodyImage: '/wallstreegallery7.jpg',
+    bodyImage: '/tree-removal-nwi.png',
     stats: [
       { display: '20+', label: 'Years Removing Trees' },
       { display: '5,000+', label: 'Trees Removed' },
@@ -66,7 +66,7 @@ export const SERVICES: ServiceData[] = [
       "Regular pruning isn't just about aesthetics — it's essential tree health care. Our ISA-certified arborists assess each tree's structure, growth patterns, and hazard potential before making any cuts.",
       "We remove dead, diseased, and crossing branches to improve airflow, light penetration, and long-term vitality. The result is a stronger, safer, more beautiful tree.",
     ],
-    bodyImage: '/wallstreegallery8.jpg',
+    bodyImage: '/tree-pruning-nwi.png',
     stats: [
       { display: '20+', label: 'Years of Experience' },
       { display: 'ANSI', label: 'A300 Standards' },
@@ -165,7 +165,7 @@ export const SERVICES: ServiceData[] = [
       "When a storm rolls through at 3 AM and a tree comes down on your house, you don't need a voicemail — you need a crew. Walls Tree Service maintains 24/7 emergency dispatch, 365 days a year.",
       "Our emergency teams arrive with full equipment ready to make the scene safe, remove fallen trees, tarp exposed structures, and begin cleanup — all in a single response.",
     ],
-    bodyImage: '/wallstreegallery2.jpeg',
+    bodyImage: '/clean-up-2.png',
     stats: [
       { display: '24/7', label: '365 Days a Year' },
       { display: '1–2hr', label: 'Avg. Response Time' },

@@ -6,7 +6,7 @@ const services = [
   {
     title: "Professional Tree Removal",
     description: "Safely removing large, hazardous, or complex trees with precision and heavy-duty equipment.",
-    image: "/wallstreegallery4.jpg",
+    image: "/wallstreeimage2.png",
     linkText: "Learn Removal Process",
     slug: "tree-removal"
   },
@@ -20,21 +20,21 @@ const services = [
   {
     title: "24/7 Emergency Response",
     description: "Immediate deployment for storm damage and critical danger tree situations to secure your property.",
-    image: "/wallstreegallery14.jpg",
+    image: "/clean-up-2.png",
     linkText: "Emergency Protocol",
     slug: "emergency"
   },
   {
     title: "Cabling & Bracing",
     description: "Providing structural support to weak branches and multi-trunk trees to prevent failure and extend lifespan.",
-    image: "/wallstreebefore.jpg",
+    image: "/wallstreeworker.png",
     linkText: "View Support Options",
     slug: "cabling-bracing"
   },
   {
     title: "Stump Grinding",
     description: "Complete removal of unsightly stumps to restore your landscape and prevent pest infestations.",
-    image: "/wallstreegalleryafter.jpg",
+    image: "/wallstreebefore1.jpg",
     linkText: "Explore Grinding",
     slug: "debris-cleanup"
   }

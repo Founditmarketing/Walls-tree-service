@@ -2,9 +2,9 @@ import { ArrowRight } from 'lucide-react';
 
 const projects = [
   {
-    image: "/wallstreegallery10.jpg",
-    title: "Precision Rope Rigging",
-    category: "Controlled Removal",
+    image: "/wallstreeworker.png",
+    title: "Expert Arborist On Site",
+    category: "Professional Crew",
     className: "min-h-[200px] lg:min-h-[220px]"
   },
   {

@@ -77,13 +77,13 @@ export default function ServicePage() {
             </div>
 
             {/* Right: Image */}
-            <div className="relative">
+            <div className="relative -mx-4 md:mx-0">
               <img
                 src={service.bodyImage}
                 alt={`${service.title} ${service.titleAccent}`}
-                className="w-full h-[520px] object-cover"
+                className="w-full aspect-square md:aspect-auto md:h-[520px] object-cover"
               />
-              <div className="absolute bottom-10 left-6 bg-enterprise-green border-l-4 border-action-orange px-6 py-4">
+              <div className="absolute bottom-10 left-6 sm:left-10 md:left-6 bg-enterprise-green border-l-4 border-action-orange px-6 py-4">
                 <p className="font-sans text-xs uppercase tracking-widest text-action-orange mb-1">Walls Tree Service</p>
                 <p className="font-heading font-bold text-lg text-white uppercase tracking-tight">ISA Certified</p>
               </div>

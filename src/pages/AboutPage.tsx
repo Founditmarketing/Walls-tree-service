@@ -159,7 +159,7 @@ export default function AboutPage() {
             {/* Right: Image */}
             <div className="relative">
               <img
-                src="/wallstree_about_2.png"
+                src="/wallsabout1.png"
                 alt={PAGE.heroImageAlt}
                 className="w-full h-[520px] object-cover"
               />

@@ -49,7 +49,7 @@ export default function About() {
             {/* Clean Hero Portrait */}
             <div className="relative h-[450px] md:h-[500px] lg:h-auto -mb-24 md:-mb-32 lg:mb-0 lg:absolute lg:-top-32 lg:-bottom-32 lg:left-0 lg:right-0 overflow-hidden group desktop-right-bleed">
               <img
-                src="/wallstree_about_3.png"
+                src="/wallstreeimage.png"
                 alt="Walls Tree Service Crew"
                 className="w-full h-full object-cover"
                 referrerPolicy="no-referrer"
